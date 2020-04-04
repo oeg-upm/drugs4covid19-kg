@@ -45,7 +45,7 @@ def normalization():
                 output_file += str(i)+","+str(value)+"\n"
         i = i+1
 
-    f = open(args.file.replace(".csv", "") + "_norm.csv", "w")
+    f = open(args.file.replace, "w")
     for row in data:
         line = ""
         for i in range(len(row)):
