@@ -27,7 +27,7 @@ def normalization():
             for value in row.split():
                 output_file += str(i) + "," + str(value) + "\n"
 
-        if i % 100000:
+        if i % 100000 == 0:
             print("Normalizing row: "+str(i))
         data[col] = i
         i = i+1
