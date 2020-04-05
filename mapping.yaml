@@ -1,0 +1,93 @@
+prefixes:
+  rr: http://www.w3.org/ns/r2rml#
+  foaf: http://xmlns.com/foaf/0.1/
+  xsd: http://www.w3.org/2001/XMLSchema#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  dc: http://purl.org/dc/elements/1.1/
+  rev: http://purl.org/stuff/rev#
+  geo: http://www.w3.org/2003/01/geo/wgs84_pos#
+  schema: http://schema.org/
+  dct: http://purl.org/dc/terms/
+  rml: http://semweb.mmlab.be/ns/rml#
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  skos: http://www.w3.org/2004/02/skos/core#
+  dcterms: http://purl.org/dc/terms/
+  d4covid: https://w3id.org/def/DRUGS4COVID19/
+
+
+mappings:
+  paper:
+    sources:
+      - [papers.csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/paper/$(id)
+    po:
+      - [rdf:type, https://w3id.org/def/DRUGS4COVID19#Paper]
+      - [d4covid:abstract, $(abstract_t)]
+      - [d4covid:identificador, $(id)]
+      - [d4covid:titulo, $(name_s)]
+      - [d4covid:licencia,$(source_s)]
+      - [d4covid:problema, $(annot_cliner_problems_t)]
+      - p: d4covid:menciona
+        o:
+         - mapping: medicamento
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id-medicamento)]
+              - [str2, $(id-medicamento)] 
+      - p: d4covid:contiene
+        o:
+         - mapping: frase
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id)]
+              - [str2, $(id)]
+
+  frase:
+    sources:
+      - [sentences.csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/frase/$(id)-$(line)
+    po:
+      - [rdf:type, https://w3id.org/def/DRUGS4COVID19#Frase]
+      - [d4covid:identificador, $(id)-$(line)]
+      - [d4covid:texto, $(text)]
+
+  medicamento:
+    sources:
+      - [medicamento.csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/medicamento/$(id)
+    po:
+      - [rdf:type, https://w3id.org/def/DRUGS4COVID19#Medicamento]
+      - [d4covid:nombreCientifico, $(scientific-name)]
+      - [d4covid:nombre, $(name)]
+      - p: d4covid:tienePrincipioActivo
+        o:
+         - mapping: principioactivo
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id)]
+              - [str2, $(id)]
+
+  principioactivo:
+    sources:
+      - [medicamento.csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/principioactivo/$(codigoMesh)
+    po:
+      - [rdf:type, https://w3id.org/def/DRUGS4COVID19#PrincipioActivo]
+      - [d4covid:codigoMesh, $(codigoMesh)]
+      - [d4covid:nombre, $(nombre)]
+      - [d4covid:codigoATC1, $(labels1_t) ]
+      - [d4covid:codigoATC2, $(labels2_t) ]
+      - [d4covid:codigoATC3, $(labels3_t) ]
+      - [d4covid:codigoATC4, $(labels4_t) ]
+      - [d4covid:codigoATC5, $(labels5_t) ] 
+
+  compuestoquimico:
+    sources:
+      - []
+
+  enfermedades:
+    sources:
+

@@ -28,35 +28,38 @@ def normalization():
 
     i = 0
     index = 0
-    print(data[0])
+    flag = False
     while i < len(data[0]):
         if col == data[0][i]:
             index = i
+            flag = True
         i = i+1
 
     i = 0
-    output_file = "id,"+col+"\n"
-    for row in range(len(data)):
-        if row != 0:
-            print("Data:"+data[row][index])
-            data_row = data[row][index].split()
-            data[row][index] = str(i)
-            for value in data_row:
-                output_file += str(i)+","+str(value)+"\n"
-        i = i+1
+    if flag:
+        output_file = "id,"+col+"\n"
+        for row in range(len(data)):
+            if row != 0:
+                data_row = data[row][index].split()
+                data[row][index] = str(i)
+                for value in data_row:
+                    output_file += str(i)+","+str(value)+"\n"
+            i = i+1
 
-    f = open(args.file.replace, "w")
-    for row in data:
-        line = ""
-        for i in range(len(row)):
-            line += '"'+row[i]+'",'
-        line = line[:-1] + '\n'
-        f.write(line)
-    f.close()
+        f = open(args.file, "w")
+        for row in data:
+            line = ""
+            for i in range(len(row)):
+                line += '"'+row[i]+'",'
+            line = line[:-1] + '\n'
+            f.write(line)
+        f.close()
 
-    f = open(args.file.replace(".csv", "") + "_"+col+".csv", "w")
-    f.write(str(output_file))
-    f.close()
+        f = open(args.file.replace(".csv", "") + "_"+col+".csv", "w")
+        f.write(str(output_file))
+        f.close()
+    else:
+        print("There is not a column "+col+" in the file")
 
 if __name__ == "__main__":
     normalization()
