@@ -26,6 +26,9 @@ def normalization():
         if isinstance(row,str):
             for value in row.split():
                 output_file += str(i) + "," + str(value) + "\n"
+
+        if i % 100000:
+            print("Normalizing row: "+i)
         data[col] = i
         i = i+1
 
