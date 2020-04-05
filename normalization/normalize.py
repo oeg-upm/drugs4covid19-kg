@@ -51,7 +51,7 @@ def normalization():
         for row in data:
             line = ""
             for i in range(len(row)):
-                line += '"'+row[i]+'",'
+                line += '"'+row[i].replace('\n', '')+'",'
             line = line[:-1] + '\n'
             f.write(line)
         f.close()
