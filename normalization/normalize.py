@@ -40,6 +40,7 @@ def normalization():
         output_file = "id,"+col+"\n"
         for row in range(len(data)):
             if row != 0:
+                print("Data: "+data[row][index])
                 data_row = data[row][index].split()
                 data[row][index] = str(i)
                 for value in data_row:
