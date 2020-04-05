@@ -36,11 +36,11 @@ def normalization():
         i = i+1
 
     i = 0
+    print(len(data))
     if flag:
         output_file = "id,"+col+"\n"
         for row in range(len(data)):
             if row != 0:
-                print("Data: "+data[row][index])
                 data_row = data[row][index].split()
                 data[row][index] = str(i)
                 for value in data_row:
@@ -48,6 +48,7 @@ def normalization():
             i = i+1
 
         f = open(args.file, "w")
+        print(len(data))
         for row in data:
             line = ""
             for i in range(len(row)):
