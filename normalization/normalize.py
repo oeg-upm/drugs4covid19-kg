@@ -29,7 +29,7 @@ def normalization():
         data[col] = i
         i = i+1
 
-    data.to_csv(args.file.replace(".csv", "")+"_norm.csv")
+    data.to_csv(args.file)
 
     f = open(args.file.replace(".csv", "") + "_" + col + ".csv", "w")
     f.write(str(output_file))
