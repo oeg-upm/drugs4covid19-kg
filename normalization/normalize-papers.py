@@ -21,10 +21,10 @@ def normalization():
         sys.exit()
 
     output_file = "paper," + col + "\n"
-    for row in data[col]:
-        if isinstance(row, str):
-            for value in row.split():
-                output_file += data['id'] + "," + str(value) + "\n"
+    for row in range(len(data[col])):
+        if isinstance(data[col][row], str):
+            for value in data[col][row].split():
+                output_file += data['id'][row] + "," + str(value) + "\n"
 
 
     f = open(args.file.replace(".csv", "") + "_" + col + ".csv", "w")
