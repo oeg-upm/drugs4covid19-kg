@@ -20,19 +20,16 @@ def normalization():
         print("No input the correct arguments, run pip3 normalize.py -h to see the help)")
         sys.exit()
 
-    i = 0
-    output_file = "id," + col + "\n"
-    for row in data[col]:
-        if isinstance(row,str):
-            for value in row.split():
-                output_file += str(i) + "," + str(value) + "\n"
+    output_file = "sentence," + col + "\n"
+    for row in range(len(data[col])):
+        if isinstance(data[col][row], str):
+            for value in data[col][row].split():
+                output_file += data['id'][row] + "," + str(value) + "\n"
 
-        if i % 100000 == 0:
-            print("Normalizing row: "+str(i))
-        data[col] = i
-        i = i+1
+        if row % 100000 == 0:
+            print("Normalizing row: "+str(row))
 
-    data.to_csv(args.file)
+
 
     f = open(args.file.replace(".csv", "") + "_" + col + ".csv", "w")
     f.write(str(output_file))
