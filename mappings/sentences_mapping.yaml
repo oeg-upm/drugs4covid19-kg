@@ -51,7 +51,7 @@ mappings:
       - [/home/dchaves/SDM-RDFizer/example/sentences-scispacy_diseases_t.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/sentence/$(id)
     po:
-            - p: d4covid:mentions
+      - p: d4covid:mentions
         o:
          - mapping: disease
            condition:

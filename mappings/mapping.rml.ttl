@@ -215,7 +215,7 @@
     rr:termType rr:Literal.
 :map_mapping_0 rml:logicalSource :source_6.
 :source_6 a rml:LogicalSource;
-    rml:source "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases-mapping.csv";
+    rml:source "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases-mappings.csv";
     rml:referenceFormulation ql:CSV.
 :map_mapping_0 a rr:TriplesMap;
     rdfs:label "mapping".

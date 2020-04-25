@@ -28,7 +28,7 @@ mappings:
 
   mapping:
     sources:
-      - [/home/dchaves/SDM-RDFizer/example/diseases-mapping.csv~csv]
+      - [/home/dchaves/SDM-RDFizer/example/diseases-mappings.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/disease/$(id)
     po:
       - [d4covid:mapping, $(mappings)]

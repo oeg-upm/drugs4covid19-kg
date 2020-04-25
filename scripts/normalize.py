@@ -31,7 +31,7 @@ def normalization():
         if isinstance(data[col][row], str):
             val = data[col][row].replace("\\,", "\\;")
             for value in val.split(sep):
-                output_file += data['id'][row] + ",\"" + str(value).replace("\\;", ",") + "\"\n"
+                output_file += data['id'][row] + ",\"" + str(value).replace("\\;", ",").replace("\\", "-") + "\"\n"
 
         if row % 100000 == 0:
             print("Normalizing row: "+str(row))

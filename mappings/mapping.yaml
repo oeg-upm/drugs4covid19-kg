@@ -77,7 +77,7 @@ mappings:
 
   mapping:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases-mapping.csv~csv]
+      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases-mappings.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/disease/$(id)
     po:
       - [d4covid:mapping, $(mappings)]
