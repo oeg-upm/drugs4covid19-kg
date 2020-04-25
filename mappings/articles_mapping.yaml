@@ -40,7 +40,14 @@ mappings:
       - [/home/dchaves/SDM-RDFizer/example/articles-scispacy_diseases_t.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/paper/$(id)
     po:
-      - [to-complete, $(scispacy_diseases_t)]
+      - p: d4covid:mentions
+        o:
+         - mapping: disease
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(scispacy_diseases_t)]
+              - [str2, $(name_t)] 
 
   activesubstance4:
     sources:

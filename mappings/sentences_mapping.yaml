@@ -23,7 +23,6 @@ mappings:
     po:
       - [rdf:type, https://w3id.org/def/DRUGS4COVID19#Sentence~iri]
       - [d4covid:identifier, $(id)]
-      - [rdfs:seeAlso, https://librairy.linkeddata.es/data/covid/select?q=id:$(id)~iri]
       - [d4covid:mentions, http://purl.bioontology.org/ontology/SNOMEDCT/$(snomed_diseases_concept_id)]
 
   paper:
@@ -47,14 +46,21 @@ mappings:
     po:
       - [d4covid:mentions, $(scispacy_chemicals_t)]
 
-  scispacy_diseases_t:
+  s_scispacy_diseases_t:
     sources:
       - [/home/dchaves/SDM-RDFizer/example/sentences-scispacy_diseases_t.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/sentence/$(id)
     po:
-      - [d4covid:mentions, $(scispacy_diseases_t)] ## igual se puede unir por algun lado
+            - p: d4covid:mentions
+        o:
+         - mapping: disease
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(scispacy_diseases_t)]
+              - [str2, $(name_t)] 
 
-  activesubstance1:
+  bionlp_atc1:
     sources:
       - [/home/dchaves/SDM-RDFizer/example/sentences-bionlp_atc1_t.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/sentence/$(id)
@@ -62,7 +68,7 @@ mappings:
       - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(bionlp_atc1_t)~iri]
       - [d4covid:mentions, hhttps://www.drugbank.ca/atc?utf8=%E2%9C%93&query=J07BG01$(bionlp_atc1_t)~iri]
 
-  activesubstance2:
+  bionlp_atc2:
     sources:
       - [/home/dchaves/SDM-RDFizer/example/sentences-bionlp_atc2_t.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/sentence/$(id)
@@ -70,7 +76,7 @@ mappings:
       - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(bionlp_atc2_t)~iri]
       - [d4covid:mentions, hhttps://www.drugbank.ca/atc?utf8=%E2%9C%93&query=J07BG01$(bionlp_atc2_t)~iri]
 
-   activesubstance3:
+   bionlp_atc3:
     sources:
       - [/home/dchaves/SDM-RDFizer/example/sentences-bionlp_atc3_t.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/sentence/$(id)
@@ -78,7 +84,7 @@ mappings:
       - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(bionlp_atc3_t)~iri]
       - [d4covid:mentions, hhttps://www.drugbank.ca/atc?utf8=%E2%9C%93&query=J07BG01$(bionlp_atc3_t)~iri]
 
-  activesubstance4:
+  bionlp_atc4:
     sources:
       - [/home/dchaves/SDM-RDFizer/example/sentences-bionlp_atc4_t.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/sentence/$(id)
@@ -86,7 +92,7 @@ mappings:
       - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(bionlp_atc4_t)~iri]
       - [d4covid:mentions, hhttps://www.drugbank.ca/atc?utf8=%E2%9C%93&query=J07BG01$(bionlp_atc4_t)~iri]
 
-  activesubstance5:
+  bionlp_atc5:
     sources:
       - [/home/dchaves/SDM-RDFizer/example/sentences-bionlp_atc5_t.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/sentence/$(id)

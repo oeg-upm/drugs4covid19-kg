@@ -16,69 +16,333 @@ prefixes:
 
 
 mappings:
-  sentence:
+  paragraph:
     sources:
-      - [/home/dchaves/SDM-RDFizer/example/sentences.csv~csv]
-    s: https://w3id.org/def/DRUGS4COVID19/resource/sentence/$(id)
+      - [/home/dchaves/SDM-RDFizer/example/paragraphs.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
     po:
-      - [rdf:type, https://w3id.org/def/DRUGS4COVID19#Sentence~iri]
+      - [rdf:type, https://w3id.org/def/DRUGS4COVID19#Paragraph~iri]
       - [d4covid:identifier, $(id)]
-      - [rdfs:seeAlso, https://librairy.linkeddata.es/data/covid/select?q=id:$(id)~iri]
-      - [d4covid:mentions, http://purl.bioontology.org/ontology/SNOMEDCT/$(snomed_diseases_concept_id)]
+      - [d4covid:section, $(section_s)]
 
-  annotation_chemicals_t:
+  paper: 
     sources:
-      - [/home/dchaves/SDM-RDFizer/example/sentences-scispacy_chemicals_t.csv~csv]
-    s: https://w3id.org/def/DRUGS4COVID19/resource/sentence/$(id)
+      - [/home/dchaves/SDM-RDFizer/example/paragraphs.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/paper/$(article_id_s)
     po:
-      - [d4covid:mentions, $(scispacy_chemicals_t)]
-
-  scispacy_diseases_t:
+      - p: d4covid:contains
+        o:
+         - mapping: paragraph
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(article_id_s)]
+              - [str2, $(article_id_s)]
+  
+  bionlp_drugs_C1:
     sources:
-      - [/home/dchaves/SDM-RDFizer/example/sentences-scispacy_diseases_t.csv~csv]
-    s: https://w3id.org/def/DRUGS4COVID19/resource/sentence/$(id)
+      - [/home/dchaves/SDM-RDFizer/example/paragraphs-bionlp_drugs_C1.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
     po:
-      - [d4covid:mentions, $(scispacy_diseases_t)] ## igual se puede unir por algun lado
+      - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(bionlp_drugs_C1)~iri]
+      - [d4covid:mentions, hhttps://www.drugbank.ca/atc?utf8=%E2%9C%93&query=J07BG01$(bionlp_drugs_C1)~iri]
 
-  activesubstance1:
+  bionlp_drugs_C2:
     sources:
-      - [/home/dchaves/SDM-RDFizer/example/sentences-bionlp_atc1_t.csv~csv]
-    s: https://w3id.org/def/DRUGS4COVID19/resource/sentence/$(id)
+      - [/home/dchaves/SDM-RDFizer/example/paragraphs-bionlp_drugs_C2.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
     po:
-      - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(bionlp_atc1_t)~iri]
-      - [d4covid:mentions, hhttps://www.drugbank.ca/atc?utf8=%E2%9C%93&query=J07BG01$(bionlp_atc1_t)~iri]
+      - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(bionlp_drugs_C2)~iri]
+      - [d4covid:mentions, hhttps://www.drugbank.ca/atc?utf8=%E2%9C%93&query=J07BG01$(bionlp_drugs_C2)~iri]
 
-  activesubstance2:
+  bionlp_drugs_C3:
     sources:
-      - [/home/dchaves/SDM-RDFizer/example/sentences-bionlp_atc2_t.csv~csv]
-    s: https://w3id.org/def/DRUGS4COVID19/resource/sentence/$(id)
+      - [/home/dchaves/SDM-RDFizer/example/paragraphs-bionlp_drugs_C3.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
     po:
-      - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(bionlp_atc2_t)~iri]
-      - [d4covid:mentions, hhttps://www.drugbank.ca/atc?utf8=%E2%9C%93&query=J07BG01$(bionlp_atc2_t)~iri]
+      - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(bionlp_drugs_C3)~iri]
+      - [d4covid:mentions, hhttps://www.drugbank.ca/atc?utf8=%E2%9C%93&query=J07BG01$(bionlp_drugs_C3)~iri]
 
-   activesubstance3:
+  bionlp_drugs_C4:
     sources:
-      - [/home/dchaves/SDM-RDFizer/example/sentences-bionlp_atc3_t.csv~csv]
-    s: https://w3id.org/def/DRUGS4COVID19/resource/sentence/$(id)
+      - [/home/dchaves/SDM-RDFizer/example/paragraphs-bionlp_drugs_C4.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
     po:
-      - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(bionlp_atc3_t)~iri]
-      - [d4covid:mentions, hhttps://www.drugbank.ca/atc?utf8=%E2%9C%93&query=J07BG01$(bionlp_atc3_t)~iri]
+      - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(bionlp_drugs_C4)~iri]
+      - [d4covid:mentions, hhttps://www.drugbank.ca/atc?utf8=%E2%9C%93&query=J07BG01$(bionlp_drugs_C4)~iri]
 
-  activesubstance4:
+  bionlp_drugs_C5:
     sources:
-      - [/home/dchaves/SDM-RDFizer/example/sentences-bionlp_atc4_t.csv~csv]
-    s: https://w3id.org/def/DRUGS4COVID19/resource/sentence/$(id)
+      - [/home/dchaves/SDM-RDFizer/example/paragraphs-bionlp_drugs_C5.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
     po:
-      - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(bionlp_atc4_t)~iri]
-      - [d4covid:mentions, hhttps://www.drugbank.ca/atc?utf8=%E2%9C%93&query=J07BG01$(bionlp_atc4_t)~iri]
+      - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(bionlp_drugs_C5)~iri]
+      - [d4covid:mentions, hhttps://www.drugbank.ca/atc?utf8=%E2%9C%93&query=J07BG01$(bionlp_drugs_C5)~iri]
 
-  activesubstance5:
+  bionlp_diseases_C1:
     sources:
-      - [/home/dchaves/SDM-RDFizer/example/sentences-bionlp_atc5_t.csv~csv]
-    s: https://w3id.org/def/DRUGS4COVID19/resource/sentence/$(id)
+      - [/home/dchaves/SDM-RDFizer/example/paragraphs-bionlp_diseases_C1.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
     po:
-      - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(bionlp_atc5_t)~iri]
-      - [d4covid:mentions, hhttps://www.drugbank.ca/atc?utf8=%E2%9C%93&query=J07BG01$(bionlp_atc5_t)~iri]
+      - p: d4covid:mentions
+        o:
+         - mapping: disease
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(bionlp_diseases_C1)]
+              - [str2, $(id)] 
 
+  bionlp_diseases_C2:
+    sources:
+      - [/home/dchaves/SDM-RDFizer/example/paragraphs-bionlp_diseases_C2.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
+    po:
+      - p: d4covid:mentions
+        o:
+         - mapping: disease
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(bionlp_diseases_C2)]
+              - [str2, $(id)] 
+
+  bionlp_diseases_C3:
+    sources:
+      - [/home/dchaves/SDM-RDFizer/example/paragraphs-bionlp_diseases_C3.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
+    po:
+      - p: d4covid:mentions
+        o:
+         - mapping: disease
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(bionlp_diseases_C3)]
+              - [str2, $(id)] 
+
+  bionlp_diseases_C4:
+    sources:
+      - [/home/dchaves/SDM-RDFizer/example/paragraphs-bionlp_diseases_C4.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
+    po:
+      - p: d4covid:mentions
+        o:
+         - mapping: disease
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(bionlp_diseases_C4)]
+              - [str2, $(id)] 
+
+  bionlp_diseases_C5:
+    sources:
+      - [/home/dchaves/SDM-RDFizer/example/paragraphs-bionlp_diseases_C5.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
+    po:
+      - p: d4covid:mentions
+        o:
+         - mapping: disease
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(bionlp_diseases_C5)]
+              - [str2, $(id)] 
+
+  bionlp_diseases_C6:
+    sources:
+      - [/home/dchaves/SDM-RDFizer/example/paragraphs-bionlp_diseases_C6.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
+    po:
+      - p: d4covid:mentions
+        o:
+         - mapping: disease
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(bionlp_diseases_C6)]
+              - [str2, $(id)] 
+
+  bionlp_diseases_C7:
+    sources:
+      - [/home/dchaves/SDM-RDFizer/example/paragraphs-bionlp_diseases_C7.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
+    po:
+      - p: d4covid:mentions
+        o:
+         - mapping: disease
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(bionlp_diseases_C7)]
+              - [str2, $(id)] 
+
+  bionlp_diseases_C8:
+    sources:
+      - [/home/dchaves/SDM-RDFizer/example/paragraphs-bionlp_diseases_C8.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
+    po:
+      - p: d4covid:mentions
+        o:
+         - mapping: disease
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(bionlp_diseases_C8)]
+              - [str2, $(id)] 
+
+  bionlp_diseases_C9:
+    sources:
+      - [/home/dchaves/SDM-RDFizer/example/paragraphs-bionlp_diseases_C9.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
+    po:
+      - p: d4covid:mentions
+        o:
+         - mapping: disease
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(bionlp_diseases_C9)]
+              - [str2, $(id)] 
+
+  bionlp_diseases_C10:
+    sources:
+      - [/home/dchaves/SDM-RDFizer/example/paragraphs-bionlp_diseases_C10.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
+    po:
+      - p: d4covid:mentions
+        o:
+         - mapping: disease
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(bionlp_diseases_C10)]
+              - [str2, $(id)] 
+
+  bionlp_diseases_C11:
+    sources:
+      - [/home/dchaves/SDM-RDFizer/example/paragraphs-bionlp_diseases_C11.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
+    po:
+      - p: d4covid:mentions
+        o:
+         - mapping: disease
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(bionlp_diseases_C11)]
+              - [str2, $(id)] 
+
+  bionlp_diseases_C12:
+    sources:
+      - [/home/dchaves/SDM-RDFizer/example/paragraphs-bionlp_diseases_C12.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
+    po:
+      - p: d4covid:mentions
+        o:
+         - mapping: disease
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(bionlp_diseases_C12)]
+              - [str2, $(id)] 
+
+  bionlp_diseases_C13:
+    sources:
+      - [/home/dchaves/SDM-RDFizer/example/paragraphs-bionlp_diseases_C13.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
+    po:
+      - p: d4covid:mentions
+        o:
+         - mapping: disease
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(bionlp_diseases_C13)]
+              - [str2, $(id)] 
+
+  bionlp_diseases_C14:
+    sources:
+      - [/home/dchaves/SDM-RDFizer/example/paragraphs-bionlp_diseases_C14.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
+    po:
+      - p: d4covid:mentions
+        o:
+         - mapping: disease
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(bionlp_diseases_C14)]
+              - [str2, $(id)] 
+
+  bionlp_diseases_C15:
+    sources:
+      - [/home/dchaves/SDM-RDFizer/example/paragraphs-bionlp_diseases_C15.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
+    po:
+      - p: d4covid:mentions
+        o:
+         - mapping: disease
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(bionlp_diseases_C15)]
+              - [str2, $(id)] 
+
+  bionlp_diseases_C16:
+    sources:
+      - [/home/dchaves/SDM-RDFizer/example/paragraphs-bionlp_diseases_C16.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
+    po:
+      - p: d4covid:mentions
+        o:
+         - mapping: disease
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(bionlp_diseases_C16)]
+              - [str2, $(id)] 
+
+  bionlp_diseases_C17:
+    sources:
+      - [/home/dchaves/SDM-RDFizer/example/paragraphs-bionlp_diseases_C17.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
+    po:
+      - p: d4covid:mentions
+        o:
+         - mapping: disease
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(bionlp_diseases_C17)]
+              - [str2, $(id)] 
+
+  bionlp_diseases_C18:
+    sources:
+      - [/home/dchaves/SDM-RDFizer/example/paragraphs-bionlp_diseases_C18.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
+    po:
+      - p: d4covid:mentions
+        o:
+         - mapping: disease
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(bionlp_diseases_C18)]
+              - [str2, $(id)] 
+
+  bionlp_diseases_C19:
+    sources:
+      - [/home/dchaves/SDM-RDFizer/example/paragraphs-bionlp_diseases_C19.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
+    po:
+      - p: d4covid:mentions
+        o:
+         - mapping: disease
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(bionlp_diseases_C19)]
+              - [str2, $(id)] 
 
 
