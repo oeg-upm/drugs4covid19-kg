@@ -35,10 +35,10 @@ mappings:
 
   synonym:
     sources:
-      - [/home/dchaves/SDM-RDFizer/example/diseases-synonym.csv~csv]
+      - [/home/dchaves/SDM-RDFizer/example/diseases-synonyms.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/disease/$(id)
     po:
-      - [d4covid:synonym, $(synonym)]
+      - [d4covid:synonym, $(synonyms)]
 
   parent:
     sources:
