@@ -1,0 +1,62 @@
+prefixes:
+  rr: http://www.w3.org/ns/r2rml#
+  foaf: http://xmlns.com/foaf/0.1/
+  xsd: http://www.w3.org/2001/XMLSchema#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  dc: http://purl.org/dc/elements/1.1/
+  rev: http://purl.org/stuff/rev#
+  geo: http://www.w3.org/2003/01/geo/wgs84_pos#
+  schema: http://schema.org/
+  dct: http://purl.org/dc/terms/
+  rml: http://semweb.mmlab.be/ns/rml#
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  skos: http://www.w3.org/2004/02/skos/core#
+  dcterms: http://purl.org/dc/terms/
+  d4covid: https://w3id.org/def/DRUGS4COVID19#
+
+
+mappings:
+  paper:
+    sources:
+      - [/home/dchaves/SDM-RDFizer/example/articles.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/paper/$(id)
+    po:
+      - [rdf:type, https://w3id.org/def/DRUGS4COVID19#Paper~iri]
+      - [d4covid:identifier, $(id)]
+      - [dc:title, $(name_s)]
+      - [dc:license, $(source_s)]
+      - [rdfs:seeAlso, https://librairy.linkeddata.es/data/covid/select?q=id:$(id)~iri]
+      - [rdfs:seeAlso, $(url_s)~iri]
+
+  annotation_problem:
+    sources:
+      - [/home/dchaves/SDM-RDFizer/example/articles-annot_cliner_problems_t.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/paper/$(id)
+    po:
+      - [d4covid:problem, $(annot_cliner_problems_t)]
+
+  scispacy_diseases_t:
+    sources:
+      - [/home/dchaves/SDM-RDFizer/example/articles-scispacy_diseases_t.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/paper/$(id)
+    po:
+      - [to-complete, $(scispacy_diseases_t)]
+
+  activesubstance4:
+    sources:
+      - [/home/dchaves/SDM-RDFizer/example/articles-labels4_t.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/paper/$(id)
+    po:
+      - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(labels4_t)~iri]
+      - [d4covid:mentions, hhttps://www.drugbank.ca/atc?utf8=%E2%9C%93&query=J07BG01$(labels4_t)~iri]
+
+  activesubstance5:
+    sources:
+      - [/home/dchaves/SDM-RDFizer/example/articles-labels5_t.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/paper/$(id)
+    po:
+      - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(labels5_t)~iri]
+      - [d4covid:mentions, hhttps://www.drugbank.ca/atc?utf8=%E2%9C%93&query=J07BG01$(labels5_t)~iri]
+
+
+
