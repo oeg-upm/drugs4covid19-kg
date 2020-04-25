@@ -25,34 +25,50 @@ mappings:
       - [d4covid:identifier, $(id)]
       - [d4covid:title, $(name_s)]
       - [d4covid:license, $(source_s)]
-      - [d4covid:problem, $(annot_cliner_problems_t)] ##ojo a este
-      - [rdfs:seeAlso, https://librairy.linkeddata.es/data/covid/select?q=id:$(ID)~iri] ## y esto???
+      - [rdfs:seeAlso, https://librairy.linkeddata.es/data/covid/select?q=id:$(id)~iri]
       - [rdfs:seeAlso, $(url_s)~iri]
-      - p: d4covid:mentions
-        o:
-         - mapping: activesubstance4 ## revisar ambos joins
-           condition:
-            function: equal
-            parameters:
-              - [str1, $(id)]
-              - [str2, $(paper)] 
-      - p: d4covid:mentions
-        o:
-         - mapping: activesubstance5
-           condition:
-            function: equal
-            parameters:
-              - [str1, $(id)]
-              - [str2, $(paper)] 
-      - p: d4covid:contains
-        o:
-         - mapping: frase
-           condition:
-            function: equal
-            parameters:
-              - [str1, $(id)]
-              - [str2, $(paper)] 
+
+  annotation_problem:
+    sources:
+      - [/home/dchaves/SDM-RDFizer/example/articles-annot_cliner_problems_t.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/paper/$(id)
+    po:
+      - [d4covid:problem, $(annot_cliner_problems_t)]
+
+  cleaner_treatments:
+    sources:
+      - [/home/dchaves/SDM-RDFizer/example/articles-annot_cliner_treatments_t.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/paper/$(id)
+    po:
+      - [to-complete, $(annot_cliner_treatments_t)]
+
+  scispacy_diseases_t:
+    sources:
+      - [/home/dchaves/SDM-RDFizer/example/articles-scispacy_diseases_t.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/paper/$(id)
+    po:
+      - [to-complete, $(scispacy_diseases_t)]
+
   activesubstance4:
+    sources:
+      - [/home/dchaves/SDM-RDFizer/example/articles-labels4_t.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/paper/$(id)
+    po:
+      - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(labels4_t)~iri]
+      - [d4covid:mentions, hhttps://www.drugbank.ca/atc?utf8=%E2%9C%93&query=J07BG01$(labels4_t)~iri]
+
+  activesubstance5:
+    sources:
+      - [/home/dchaves/SDM-RDFizer/example/articles-labels5_t.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/paper/$(id)
+    po:
+      - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(labels5_t)~iri]
+      - [d4covid:mentions, hhttps://www.drugbank.ca/atc?utf8=%E2%9C%93&query=J07BG01$(labels5_t)~iri]
+
+
+
+  # TO REMOVE
+  activesubstance4-:
     sources:
       - [/home/dchaves/SDM-RDFizer/example/articles-labels4_t.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/activesubstance/$(id)
@@ -60,16 +76,19 @@ mappings:
       - [rdf:type, https://w3id.org/def/DRUGS4COVID19#ActiveSubstance~iri]
       - [d4covid:ATC4Code, $(labels4_t)]
       - [rdfs:seeAlso, https://www.drugbank.ca/atc?utf8=%E2%9C%93&query=J07BG01$(labels4_t)~iri]
-      - [rdfs:seeAlso, http://purl.bioontology.org/ontology/UATC/$(labels4_t)] 
-  activesubstance5:
-    sources:
-      - [/home/dchaves/SDM-RDFizer/example/articles-labels5_t.csv~csv]
-    s: https://w3id.org/def/DRUGS4COVID19/resource/activesubstance/$(id)
-    po:
-      - [rdf:type, https://w3id.org/def/DRUGS4COVID19#ActiveSubstance~iri]
-      - [d4covid:ATC5Code, $(labels5_t)] 
-      - [rdfs:seeAlso, https://www.drugbank.ca/atc?utf8=%E2%9C%93&query=J07BG01$(labels5_t)~iri] 
-      - [rdfs:seeAlso, http://purl.bioontology.org/ontology/UATC/$(labels5_t)] 
+      - [rdfs:seeAlso, http://purl.bioontology.org/ontology/UATC/$(labels4_t)]
+    activesubstance5-:
+      sources:
+        - [/home/dchaves/SDM-RDFizer/example/articles-labels5_t.csv~csv]
+      s: https://w3id.org/def/DRUGS4COVID19/resource/activesubstance/$(id)
+      po:
+        - [rdf:type, https://w3id.org/def/DRUGS4COVID19#ActiveSubstance~iri]
+        - [d4covid:ATC5Code, $(labels5_t)]
+        - [rdfs:seeAlso, https://www.drugbank.ca/atc?utf8=%E2%9C%93&query=J07BG01$(labels5_t)~iri]
+        - [rdfs:seeAlso, http://purl.bioontology.org/ontology/UATC/$(labels5_t)]
+
+
+  # to move to sentences mapping
   sentence:
     sources:
       - [/home/dchaves/SDM-RDFizer/example/ids.csv~csv]
