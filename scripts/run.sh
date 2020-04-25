@@ -14,6 +14,7 @@ bash paragraphs.sh
 echo "Downloading and normalizing sentences SOLR"
 bash sentences.sh
 
+finish=$(date +%s.%N)
 dur=$(echo "$finish - $start" | bc)
 
 dt=$(date '+%d/%m/%Y %H:%M:%S');
