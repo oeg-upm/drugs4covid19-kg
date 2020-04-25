@@ -26,20 +26,6 @@ mappings:
       - [rdfs:seeAlso, https://librairy.linkeddata.es/data/covid/select?q=id:$(id)~iri]
       - [d4covid:mentions, http://purl.bioontology.org/ontology/SNOMEDCT/$(snomed_diseases_concept_id)]
 
-  paper:
-    sources:
-      - [/home/dchaves/SDM-RDFizer/example/sentences-id.csv~csv]
-    s: https://w3id.org/def/DRUGS4COVID19/resource/paper/$(paper)
-    po:
-      - p: d4covid:contains
-        o:
-         - mapping: sentence
-           condition:
-            function: equal
-            parameters:
-              - [str1, $(id)]
-              - [str2, $(id)] 
-
   annotation_chemicals_t:
     sources:
       - [/home/dchaves/SDM-RDFizer/example/sentences-scispacy_chemicals_t.csv~csv]
