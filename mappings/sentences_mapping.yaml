@@ -1,0 +1,90 @@
+prefixes:
+  rr: http://www.w3.org/ns/r2rml#
+  foaf: http://xmlns.com/foaf/0.1/
+  xsd: http://www.w3.org/2001/XMLSchema#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  dc: http://purl.org/dc/elements/1.1/
+  rev: http://purl.org/stuff/rev#
+  geo: http://www.w3.org/2003/01/geo/wgs84_pos#
+  schema: http://schema.org/
+  dct: http://purl.org/dc/terms/
+  rml: http://semweb.mmlab.be/ns/rml#
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  skos: http://www.w3.org/2004/02/skos/core#
+  dcterms: http://purl.org/dc/terms/
+  d4covid: https://w3id.org/def/DRUGS4COVID19#
+
+
+mappings:
+  sentence:
+    sources:
+      - [/home/dchaves/SDM-RDFizer/example/sentences-id.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/sentence/$(id)
+    po:
+      - [rdf:type, https://w3id.org/def/DRUGS4COVID19#Sentence~iri]
+      - [d4covid:identifier, $(id)]
+      - [rdfs:seeAlso, https://librairy.linkeddata.es/data/covid/select?q=id:$(id)~iri]
+
+  annotation_chemicals_t:
+    sources:
+      - [/home/dchaves/SDM-RDFizer/example/sentences-scispacy_chemicals_t.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/sentence/$(id)
+    po:
+      - [d4covid:mentions, $(scispacy_chemicals_t)]
+
+  scispacy_diseases_t:
+    sources:
+      - [/home/dchaves/SDM-RDFizer/example/sentences-scispacy_diseases_t.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/sentence/$(id)
+    po:
+      - [d4covid:mentions, $(scispacy_diseases_t)] ## igual se puede unir por algun lado
+
+  snomed_diseases_concept_id:
+    sources:
+      - [/home/dchaves/SDM-RDFizer/example/sentences-snomed_diseases_concept_id.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/sentence/$(id)
+    po:
+      - [d4covid:mentions, http://purl.bioontology.org/ontology/SNOMEDCT/$(snomed_diseases_concept_id)]
+
+  activesubstance1:
+    sources:
+      - [/home/dchaves/SDM-RDFizer/example/sentences-bionlp_atc1_t.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/sentence/$(id)
+    po:
+      - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(bionlp_atc1_t)~iri]
+      - [d4covid:mentions, hhttps://www.drugbank.ca/atc?utf8=%E2%9C%93&query=J07BG01$(bionlp_atc1_t)~iri]
+
+  activesubstance2:
+    sources:
+      - [/home/dchaves/SDM-RDFizer/example/sentences-bionlp_atc2_t.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/sentence/$(id)
+    po:
+      - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(bionlp_atc2_t)~iri]
+      - [d4covid:mentions, hhttps://www.drugbank.ca/atc?utf8=%E2%9C%93&query=J07BG01$(bionlp_atc2_t)~iri]
+
+   activesubstance3:
+    sources:
+      - [/home/dchaves/SDM-RDFizer/example/sentences-bionlp_atc3_t.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/sentence/$(id)
+    po:
+      - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(bionlp_atc3_t)~iri]
+      - [d4covid:mentions, hhttps://www.drugbank.ca/atc?utf8=%E2%9C%93&query=J07BG01$(bionlp_atc3_t)~iri]
+
+  activesubstance4:
+    sources:
+      - [/home/dchaves/SDM-RDFizer/example/sentences-bionlp_atc4_t.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/sentence/$(id)
+    po:
+      - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(bionlp_atc4_t)~iri]
+      - [d4covid:mentions, hhttps://www.drugbank.ca/atc?utf8=%E2%9C%93&query=J07BG01$(bionlp_atc4_t)~iri]
+
+  activesubstance5:
+    sources:
+      - [/home/dchaves/SDM-RDFizer/example/sentences-bionlp_atc5_t.csv~csv]
+    s: https://w3id.org/def/DRUGS4COVID19/resource/sentence/$(id)
+    po:
+      - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(bionlp_atc5_t)~iri]
+      - [d4covid:mentions, hhttps://www.drugbank.ca/atc?utf8=%E2%9C%93&query=J07BG01$(bionlp_atc5_t)~iri]
+
+
+
