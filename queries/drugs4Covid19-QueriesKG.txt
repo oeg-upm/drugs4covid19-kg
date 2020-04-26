@@ -37,6 +37,13 @@ WHERE {
 
 # Articles discussing drugs of the amphotericin B family (same ATC4) and COVID-19
 with upper level ATC4Code:(ATC4 of amphotericin B:)
+
+PREFIX d4covid:<https://w3id.org/def/DRUGS4COVID19#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX skos:<http://www.w3.org/2004/02/skos/core#>
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>
+
 SELECT  DISTINCT ?section ?titleDisease ?paperTitle ?completePaper ?labelFamilySubstance
 WHERE
 {
