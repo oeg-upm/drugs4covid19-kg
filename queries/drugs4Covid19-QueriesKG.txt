@@ -193,70 +193,38 @@ WHERE {
 
           
 
+#4  Active substances discussed with Pneumonia and COVID-19
+Paragraphs that mention pneumonia and COVID-19, the active ingredients that are mentioned in these paragraphs and the title   in their corresponding papers. 
 
-
-
-
-
-#4. Recent articles discussing drugs related to bilateral pneumonia
-Drugs that are mentioned in the same paragraph as the disorder “bilateral pneumonia”, their related papers in recency order (ordered by paper date)
-PREFIX d4covid:<https://w3id.org/def/DRUGS4COVID19#>
-PREFIX dc: <http://purl.org/dc/terms/>
-PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
-
-
-
-
-SELECT ?drug ?scientificName ?drugName
-WHERE {
-            ?paragraph a d4covid:Paragraph .
-        ?paragraph  d4covid:mentions ?chemicalSubstance .
-?chemicalSubstance a d4covid:ChemicalSubstance .
-?paragraph d4covid:mentions ?disorder .
-        ?disorder a d4covid:Disorder .
-#check SNOMEDCode for bilateral pneumonia
-             ?disorder d4covid:SNOMEDCode "bilateral pneumonia" .
-             ?paper d4covid:contains d4covid:paragraph .
-             ?paper a d4covid:Paper .
-        ?paper  d4covid:date ?date .
-        }
-ORDER BY DESC(?date)
- 
-
-
-
-
-
-
-#5  Active substances discussed with D-Dimer and COVID-19
-Paragraphs that mention the blood disorder D-Dimer and COVID-19, the active ingredients that are mentioned in these paragraphs, the title and problem mentioned in their corresponding papers. 
-This query is proposed by a medical doctor. The disorder D-Dimer may appear together with COVID-19.
 
 
 PREFIX d4covid:<https://w3id.org/def/DRUGS4COVID19#>
-PREFIX dc: <http://purl.org/dc/terms/>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
 PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX skos:<http://www.w3.org/2004/02/skos/core#>
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>
 
-
-SELECT ?text ?title ?problem ?chemicalSubstance
+SELECT DISTINCT ?section ?paperTitle ?titleDisease ?labelSubstance
 WHERE {
         ?paragraph a d4covid:Paragraph .
-        ?paragraph d4covid:text ?text .
-             ?paragraph d4covid:mentions ?disorder1 .
-        ?disorder1 a d4covid:Disease .
-# check SNOMED code for COVID-19
-             ?disorder1 d4covid:SNOMEDCode 'COVID-19' .   
-             ?paragraph d4covid:mentions ?disorder2 .
-               ?disorder1 a d4covid:Disease .
-# check SNOMED code for D-Dimer
-             ?disorder1 d4covid:SNOMEDCode 'D-Dimer' .  
-             ?paragraph d4covid:mentions ?chemicalSubstance .
-             ?chemicalSubstance a d4covid:ChemicalSubstance . 
+        ?paragraph d4covid:section ?section .
         ?paper d4covid:contains ?paragraph .
-             ?paper a d4covid:Paper .
-        ?paper d4covid:title ?title .
-        ?paper d4covid:problem ?problem .
- }
+        ?paper dc:title ?paperTitle . 
+         ?paragraph d4covid:mentions ?disease1 .
+         ?disease1 a d4covid:Disease .
+         ?disease1 d4covid:MESHCode 'C000657245' .   
+         ?paragraph d4covid:mentions ?disease2 .
+         ?disease2 a d4covid:Disease .
+         ?disease2 dc:title ?titleDisease .
+         ?paragraph  d4covid:mentions ?activeSubstance .        
+         ?activeSubstance skos:prefLabel ?labelSubstance .
+     FILTER(CONTAINS(?titleDisease,"Pneumonia") || CONTAINS(?titleDisease,"pneumonia"))
+}
+
+
+
+
+
 
 
 
@@ -270,6 +238,32 @@ Query proposed by a medical doctor. There is a need to block coagulation activat
 
 
 Same as #5 instead with COVID-19 and coagulation activation.
+
+PREFIX d4covid:<https://w3id.org/def/DRUGS4COVID19#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX skos:<http://www.w3.org/2004/02/skos/core#>
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?section ?paperTitle ?titleDisease ?labelSubstance
+
+WHERE {
+        ?paragraph a d4covid:Paragraph .
+        ?paragraph d4covid:section ?section .
+        ?paper d4covid:contains ?paragraph .
+        ?paper dc:title ?paperTitle . 
+         ?paragraph d4covid:mentions ?disease1 .
+         ?disease1 a d4covid:Disease .
+       #  ?disease1 d4covid:MESHCode 'C000657245' .   
+         ?paragraph d4covid:mentions ?disease2 .
+         ?disease2 a d4covid:Disease .
+       # ?disease1 d4covid:MESHCode 'D001778' . 
+         ?disease2 dc:title ?titleDisease .
+         ?paragraph  d4covid:mentions ?activeSubstance .        
+         ?activeSubstance skos:prefLabel ?labelSubstance .
+     FILTER(CONTAINS(?titleDisease,"Coagulation") || CONTAINS(?titleDisease,"coagulation"))
+}
+
 
 
 2. Future queries for KG with crowd annotations.
