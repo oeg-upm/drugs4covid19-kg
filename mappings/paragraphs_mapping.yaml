@@ -24,6 +24,7 @@ mappings:
       - [rdf:type, https://w3id.org/def/DRUGS4COVID19#Paragraph~iri]
       - [d4covid:identifier, $(id)]
       - [d4covid:section, $(section_s)]
+      - [rdfs:seeAlso, https://librairy.linkeddata.es/data/covid-paragraphs/select?q=id:$(id)~iri]
 
   paper: 
     sources:
@@ -45,7 +46,7 @@ mappings:
     s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
     po:
       - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(bionlp_drugs_C1)~iri]
-      - [d4covid:mentions, hhttps://www.drugbank.ca/atc?utf8=%E2%9C%93&query=J07BG01$(bionlp_drugs_C1)~iri]
+      - [d4covid:mentions, https://www.drugbank.ca/atc?utf8=%E2%9C%93&query=J07BG01$(bionlp_drugs_C1)~iri]
 
   bionlp_drugs_C2:
     sources:
@@ -53,7 +54,7 @@ mappings:
     s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
     po:
       - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(bionlp_drugs_C2)~iri]
-      - [d4covid:mentions, hhttps://www.drugbank.ca/atc?utf8=%E2%9C%93&query=J07BG01$(bionlp_drugs_C2)~iri]
+      - [d4covid:mentions, https://www.drugbank.ca/atc?utf8=%E2%9C%93&query=J07BG01$(bionlp_drugs_C2)~iri]
 
   bionlp_drugs_C3:
     sources:
@@ -61,7 +62,7 @@ mappings:
     s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
     po:
       - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(bionlp_drugs_C3)~iri]
-      - [d4covid:mentions, hhttps://www.drugbank.ca/atc?utf8=%E2%9C%93&query=J07BG01$(bionlp_drugs_C3)~iri]
+      - [d4covid:mentions, https://www.drugbank.ca/atc?utf8=%E2%9C%93&query=J07BG01$(bionlp_drugs_C3)~iri]
 
   bionlp_drugs_C4:
     sources:
@@ -69,7 +70,7 @@ mappings:
     s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
     po:
       - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(bionlp_drugs_C4)~iri]
-      - [d4covid:mentions, hhttps://www.drugbank.ca/atc?utf8=%E2%9C%93&query=J07BG01$(bionlp_drugs_C4)~iri]
+      - [d4covid:mentions, https://www.drugbank.ca/atc?utf8=%E2%9C%93&query=J07BG01$(bionlp_drugs_C4)~iri]
 
   bionlp_drugs_C5:
     sources:
@@ -77,7 +78,7 @@ mappings:
     s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
     po:
       - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(bionlp_drugs_C5)~iri]
-      - [d4covid:mentions, hhttps://www.drugbank.ca/atc?utf8=%E2%9C%93&query=J07BG01$(bionlp_drugs_C5)~iri]
+      - [d4covid:mentions, https://www.drugbank.ca/atc?utf8=%E2%9C%93&query=J07BG01$(bionlp_drugs_C5)~iri]
 
   bionlp_diseases_C1:
     sources:
