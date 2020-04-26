@@ -36,7 +36,7 @@ WHERE {
 
 
 # Articles discussing drugs of the amphotericin B family (same ATC4) and COVID-19
-with upper level  ATC4Code:(ATC4 of amphotericin B: A01A: STOMATOLOGICAL PREPARATIONS)
+with upper level ATC4Code:(ATC4 of amphotericin B:)
 SELECT  DISTINCT ?section ?titleDisease ?paperTitle ?completePaper ?labelFamilySubstance
 WHERE
 {
