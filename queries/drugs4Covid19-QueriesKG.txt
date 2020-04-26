@@ -1,0 +1,264 @@
+﻿I Queries for KG
+# 1. Articles discussing Ciclosporina A and COVID-19
+Paragraphs that mention a certain active substance and a certain disorder, and the name and source of the corresponding paper.
+
+
+Instances: Ciclosporina A ATC: L04AD01, Disorder: COVID-19 
+Now works with Colitis and its synonyms
+We can also retrieve paragraphs for upper  levels of the ATC code.
+
+
+PREFIX d4covid:<https://w3id.org/def/DRUGS4COVID19#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX skos:<http://www.w3.org/2004/02/skos/core#>
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>
+
+
+SELECT ?title ?completePaper
+WHERE {
+        ?paper a d4covid:Paper .
+        ?paper dc:title ?title . 
+?paper rdfs:seeAlso ?completePaper .        
+        ?paper d4covid:mentions ?activeSubstance .
+        ?activeSubstance skos:prefLabel  ?label  . 
+        ?paper d4covid:mentions ?disease .
+        ?disease a d4covid:Disease .
+        ?disease dc:title ?titleDisease .   
+        ?disease d4covid:synonym    ?synonym .  
+        FILTER (CONTAINS(?label, 'ciclosporin') && (CONTAINS(?titleDisease, "Colitis") || CONTAINS(?titleDisease, "?synonym")))  
+} 
+
+
+
+
+
+
+# Articles discussing drugs of the ciclosporina family (same ATC4) and COVID-19
+with upper level  ATC4Code:(ATC4 of Ciclosporina A: L04AD: calcineurin inhibitors)
+PREFIX d4covid:<https://w3id.org/def/DRUGS4COVID19#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX skos:<http://www.w3.org/2004/02/skos/core#>
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>
+
+
+SELECT ?title ?completePaper ?labelFamily
+WHERE {
+        ?paper a d4covid:Paper .
+        ?paper dc:title ?title . 
+        ?paper rdfs:seeAlso ?completePaper .        
+        ?paper d4covid:mentions ?familySubstance .
+        ?activeSubstance skos:prefLabel  ?label  . 
+        ?activeSubstance rdfs:subClassOf ?familySubstance .
+        ?familySubstance skos:prefLabel ?labelFamily .
+        ?paper d4covid:mentions ?disease .
+        ?disease a d4covid:Disease .
+        ?disease dc:title ?titleDisease .   
+        ?disease d4covid:synonym    ?synonym .  
+        FILTER (CONTAINS(?label, 'ciclosporin') && (CONTAINS(?titleDisease, "Colitis") || CONTAINS(?titleDisease, "?synonym")))  
+} 
+    
+
+
+
+
+# 2. Immunostimulants related to COVID-19
+Documents that mention inmunostimulants (ATC code L03A) and all of the ATCs in lower levels and the disease COVID-19 
+We should add “and related diseases” if the annotation “mapping” which corresponds to related diseases is mapped to the KG. 
+This query can be ranked, the results with more specific levels in the ATC codes can appear first.
+Motivation: Documents that mention the BCG vaccine (ATC code L03AX03) (vaccine against the tuberculosis Bacteria) because there are studies that link the vaccine with partial immunization  to COVID-19. 
+
+
+PREFIX d4covid:<https://w3id.org/def/DRUGS4COVID19#>
+PREFIX dc: <http://purl.org/dc/terms/>
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+
+
+SELECT ?title ?problem ?codATC4 ?codATC5
+WHERE {
+        ?paper a d4covid:Paper .
+              ?paper d4covid:title ?title .
+        ?paper d4covid:problem ?problem . 
+             ?paper d4covid:mentions ?disorder .
+             # check SNOMED code for COVID-19
+             ?disease d4covid:SNOMEDCode 'COVID-19' .   
+        ?paper d4covid:mentions ?chemicalSubstance .
+             ?chemicalSubstance a d4covid:ChemicalSubstance .
+             ?chemicalSubstance d4covid:codigoATC3  'L03A' .
+        OPTIONAL {?chemicalSubstance d4covid:codigoATC4 ?codATC4 .
+              FILTER (STRSTARTS(?codATC4,'L03A'))}
+OPTIONAL {?chemicalSubstance d4covid:codigoATC5 ?codATC5 .
+              FILTER (STRSTARTS(?codATC5,?codATC4))}
+}
+
+
+Immunostimulants related to COVID-19? (ordered by specificity)
+#Con ranking: los documentos que contengan los ATC más específicos aparecerán primero.
+PREFIX d4covid:<https://w3id.org/def/DRUGS4COVID19#>
+PREFIX dc: <http://purl.org/dc/terms/>
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+
+
+
+
+SELECT ?title ?problem ?codATC4 ?codATC5
+WHERE {
+        ?paper a d4covid:Paper .
+              ?paper d4covid:title ?title .
+        ?paper d4covid:problem ?problem . 
+             ?paper d4covid:mentions ?disorder .
+             # check SNOMED code for COVID-19
+             ?disease d4covid:SNOMEDCode 'COVID-19' .   
+        ?paper d4covid:mentions ?chemicalSubstance .
+             ?chemicalSubstance a d4covid:ChemicalSubstance .
+             ?chemicalSubstance d4covid:codigoATC3  ?codATC3 .
+             FILTER(?codATC3='L03A') .
+        OPTIONAL {?chemicalSubstance d4covid:codigoATC4 ?codATC4 .
+              FILTER (STRSTARTS(?codATC4,'L03A'))}
+             OPTIONAL {?chemicalSubstance d4covid:codigoATC5 ?codATC5 .
+              FILTER (STRSTARTS(?codATC5,?codATC4))}
+             BIND (IF(BOUND(?codATC5),3,0)+IF(BOUND(?codATC4),2,0)+IF(BOUND(?codATC3),1,0) AS ?score)
+}
+ORDER BY DESC(?score)
+
+
+
+
+#3. Diseases related to drugs that combine  immunosuppressant  and antimalarial activities with macrolide antibiotics
+Paragraphs with drugs that combine immunosuppressant  and antimalarial activities with macrolide antibiotics, the diseases that appear in these paragraphs, and the title and problem of the corresponding paper. 
+Use case last hackaton.
+We probably can get more information from diseases once the KG is created.
+The drugs that combine  immunosuppressant  and antimalarial activities have the active ingredient P01BA02.
+The macrolide antibiotics belong to the therapeutic group  J01FA;
+
+
+PREFIX d4covid:<https://w3id.org/def/DRUGS4COVID19#>
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX owl:     <http://www.w3.org/2002/07/owl#>
+
+
+
+
+SELECT ?title ?problem ?SNOMEDHCode ?synonym
+WHERE {
+                    ?paragraph a d4covid:paragraph .
+        ?paragraph d4covid:mentions ?chemicalSubstance1 .
+        ?paragraph d4covid:mentions ?chemicalSubstance2 .
+        ?chemicalSubstance1  a d4covid:ChemicalSubstance .
+        ?chemicalSubstance1 d4covid:ATC5Code "P01BA02" .
+        ?chemicalSubstance2 a d4covid:ChemicalSubstance .
+        ?chemicalSubstance2 d4covid:ATC4Code "J01FA" .
+             ?paragraph d4covid:mentions ?disorder .
+        ?disorder a d4covid:Disorder .
+             ?disorder d4covid:SNOMEDCode ?SNOMEDCode  .
+             ?disorder d4covid:synonym ?synonym .
+             ?paper d4covid:contains ?paragraph .
+             ?paper a d4covid:Paper .
+             ?paper d4covid:title ?title .
+             ?paper d4covid:problem ?problem .
+
+
+}
+
+
+
+
+#4. Recent articles discussing drugs related to bilateral pneumonia
+Drugs that are mentioned in the same paragraph as the disorder “bilateral pneumonia”, their related papers in recency order (ordered by paper date)
+PREFIX d4covid:<https://w3id.org/def/DRUGS4COVID19#>
+PREFIX dc: <http://purl.org/dc/terms/>
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+
+
+
+
+SELECT ?drug ?scientificName ?drugName
+WHERE {
+            ?paragraph a d4covid:Paragraph .
+        ?paragraph  d4covid:mentions ?chemicalSubstance .
+?chemicalSubstance a d4covid:ChemicalSubstance .
+?paragraph d4covid:mentions ?disorder .
+        ?disorder a d4covid:Disorder .
+#check SNOMEDCode for bilateral pneumonia
+             ?disorder d4covid:SNOMEDCode "bilateral pneumonia" .
+             ?paper d4covid:contains d4covid:paragraph .
+             ?paper a d4covid:Paper .
+        ?paper  d4covid:date ?date .
+        }
+ORDER BY DESC(?date)
+ 
+
+
+
+
+
+
+#5  Active substances discussed with D-Dimer and COVID-19
+Paragraphs that mention the blood disorder D-Dimer and COVID-19, the active ingredients that are mentioned in these paragraphs, the title and problem mentioned in their corresponding papers. 
+This query is proposed by a medical doctor. The disorder D-Dimer may appear together with COVID-19.
+
+
+PREFIX d4covid:<https://w3id.org/def/DRUGS4COVID19#>
+PREFIX dc: <http://purl.org/dc/terms/>
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+
+
+SELECT ?text ?title ?problem ?chemicalSubstance
+WHERE {
+        ?paragraph a d4covid:Paragraph .
+        ?paragraph d4covid:text ?text .
+             ?paragraph d4covid:mentions ?disorder1 .
+        ?disorder1 a d4covid:Disease .
+# check SNOMED code for COVID-19
+             ?disorder1 d4covid:SNOMEDCode 'COVID-19' .   
+             ?paragraph d4covid:mentions ?disorder2 .
+               ?disorder1 a d4covid:Disease .
+# check SNOMED code for D-Dimer
+             ?disorder1 d4covid:SNOMEDCode 'D-Dimer' .  
+             ?paragraph d4covid:mentions ?chemicalSubstance .
+             ?chemicalSubstance a d4covid:ChemicalSubstance . 
+        ?paper d4covid:contains ?paragraph .
+             ?paper a d4covid:Paper .
+        ?paper d4covid:title ?title .
+        ?paper d4covid:problem ?problem .
+ }
+
+
+
+
+
+
+#6 Análoga a la anterior, 
+Active substances discussed with coagulation activation and COVID-19
+Paragraphs that mention the disorders coagulation activation and COVID-19, the active ingredients that appear in these paragraphs, the corresponding paper title and problem.
+Query proposed by a medical doctor. There is a need to block coagulation activation of patients with COVID-19. Necrosis problems have been observed in patients with COVID-19.
+
+
+Same as #5 instead with COVID-19 and coagulation activation.
+
+
+2. Future queries for KG with crowd annotations.
+
+
+#1. Diseases that  are contraindicated by drugs that combine  immunosuppressant  and antimalarial activities with macrolide antibiotics mentioned
+Paragraphs with drugs that combine immunosuppressant  and antimalarial activities with macrolide antibiotics, the disorders  that are treated by these drugs, the disorders for which these drugs are counterindicated, and the title and problem of the corresponding paper. 
+Query #3 with annotations on drugs that treat disorders and diseases counterindicated by these drugs.
+Similarly Query #4, 5 and 6 could also be improved with further annotations. 
+
+
+
+
+# 2.  Diseases that are contraindicated by drugs used to treat the symptoms of COVID-19 (e.g. fever, dry cough and respiratory impairments)
+Which are the disorders that are counterindicated by the active ingredients used to treat fever, dry cough and respiratory impairments.
+Query proposed by a general user
+
+
+#3. Drugs used against COVID-19 that include corticoids 
+Which are the drugs that include corticoids used against COVID-19 that have as effect the CPOD (Chronic Obstructive Pulmonary Disease) lung disease.
+This query was proposed by a medical doctor. It is of interest because corticids are applied as treatment for COVID-19 and doctors want to know if the patient in the future will have the CPOD disease.
+
+
+#4. Effects of hidroxicloriquina
+ Which are the effects that may be produced by the active principle Hidroxicloriquina
+Query proposed by a medical doctor Guides the doctor to know previous tests that should be done to the patient before applying the treatment, that could predict that those effects could take place.
