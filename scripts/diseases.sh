@@ -12,3 +12,5 @@ do
   echo "Normalizing column $j in diseases file"
   python3 normalize.py -f diseases-$j.csv -c $j -s ,
 done
+
+python3 preparation.py -f diseases.csv

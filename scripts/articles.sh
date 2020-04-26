@@ -15,3 +15,5 @@ do
   echo "Normalizing column $j in papers file"
   python3 normalize.py -f articles-$j.csv -c $j
 done
+
+python3 preparation.py -f articles.csv

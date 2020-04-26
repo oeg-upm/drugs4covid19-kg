@@ -46,7 +46,7 @@ mappings:
       - [/home/dchaves/SDM-RDFizer/example/diseases-parent.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/disease/$(id)
     po:
-      - p: rdfs:subClassOf
+      - p: d4covid:isNarrowerThan
         o:
          - mapping: disease
            condition:
