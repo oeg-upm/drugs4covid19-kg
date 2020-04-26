@@ -25,7 +25,6 @@ WHERE {
         ?disease a d4covid:Disease .
         ?disease d4covid:MESHCode 'C000657245' .   
         ?disease dc:title ?titleDisease .
-        ?disease d4covid:synonym    ?synonym . 
              
 } 
 
@@ -60,7 +59,6 @@ WHERE
         ?disease a d4covid:Disease .
         ?disease d4covid:MESHCode 'C000657245' .   
         ?disease dc:title ?titleDisease .
-        ?disease d4covid:synonym    ?synonym . 
              
 } 
 
@@ -70,33 +68,36 @@ WHERE
 
 
 # 2. Immunostimulants related to COVID-19
-Documents that mention inmunostimulants (ATC code L03A) and all of the ATCs in lower levels and the disease COVID-19 
+Documents that mention other immunostimulants in ATC (ATC code L03AX) and all of the ATCs in lower levels and the disease COVID-19 
 We should add “and related diseases” if the annotation “mapping” which corresponds to related diseases is mapped to the KG. 
 This query can be ranked, the results with more specific levels in the ATC codes can appear first.
 Motivation: Documents that mention the BCG vaccine (ATC code L03AX03) (vaccine against the tuberculosis Bacteria) because there are studies that link the vaccine with partial immunization  to COVID-19. 
 
 
 PREFIX d4covid:<https://w3id.org/def/DRUGS4COVID19#>
-PREFIX dc: <http://purl.org/dc/terms/>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
 PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX skos:<http://www.w3.org/2004/02/skos/core#>
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>
 
-
-SELECT ?title ?problem ?codATC4 ?codATC5
-WHERE {
-        ?paper a d4covid:Paper .
-              ?paper d4covid:title ?title .
-        ?paper d4covid:problem ?problem . 
-             ?paper d4covid:mentions ?disorder .
-             # check SNOMED code for COVID-19
-             ?disease d4covid:SNOMEDCode 'COVID-19' .   
-        ?paper d4covid:mentions ?chemicalSubstance .
-             ?chemicalSubstance a d4covid:ChemicalSubstance .
-             ?chemicalSubstance d4covid:codigoATC3  'L03A' .
-        OPTIONAL {?chemicalSubstance d4covid:codigoATC4 ?codATC4 .
-              FILTER (STRSTARTS(?codATC4,'L03A'))}
-OPTIONAL {?chemicalSubstance d4covid:codigoATC5 ?codATC5 .
-              FILTER (STRSTARTS(?codATC5,?codATC4))}
+SELECT  DISTINCT ?section ?titleDisease ?paperTitle ?completePaper ?labelATCLevel5
+{
+    ?paragraph a d4covid:Paragraph .
+        ?paragraph d4covid:section ?section .
+        ?paper d4covid:contains ?paragraph .
+        ?paper dc:title ?paperTitle . 
+        ?paper rdfs:seeAlso ?completePaper .    
+        ?paper d4covid:mentions ?activeSubstance .
+        ?activeSubstance skos:notation 'L03AX'^^xsd:string . 
+        ?level5Substance rdfs:subClassOf ?activeSubstance  . 
+        ?paper d4covid:mentions ?level5Substance .
+        ?level5Substance skos:prefLabel ?labelATCLevel5 .
+        ?paragraph d4covid:mentions ?disease .
+        ?disease a d4covid:Disease .
+        ?disease d4covid:MESHCode 'C000657245' .   
+        ?disease dc:title ?titleDisease .             
 }
+
 
 
 Immunostimulants related to COVID-19? (ordered by specificity)
