@@ -95,7 +95,7 @@ mappings:
       - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases-parent.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/disease/$(id)
     po:
-      - p: d4covid:broader
+      - p: d4covid:isNarrowerThan
         o:
           - mapping: disease
             condition:

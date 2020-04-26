@@ -509,7 +509,7 @@ map:pm_17 a rr:PredicateMap;
 map:pm_18 a rr:PredicateMap;
     rr:constant <https://w3id.org/def/DRUGS4COVID19#synonym>.
 map:pm_19 a rr:PredicateMap;
-    rr:constant <https://w3id.org/def/DRUGS4COVID19#broader>.
+    rr:constant <https://w3id.org/def/DRUGS4COVID19#isNarrowerThan>.
 map:pm_2 a rr:PredicateMap;
     rr:constant <http://purl.org/dc/elements/1.1/title>.
 map:pm_20 a rr:PredicateMap;
