@@ -25,6 +25,7 @@ mappings:
       - [d4covid:MESHCode, $(id)]
       - [dc:title, $(name_t)]
       - [d4covid:MESHlevel, $(level_i)]
+      - [rdfs:seeAlso, https://librairy.linkeddata.es/data/diseases/select?q=id:$(id)~iri]
 
   mapping:
     sources:
