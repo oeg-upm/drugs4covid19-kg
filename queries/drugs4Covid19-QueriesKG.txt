@@ -82,50 +82,75 @@ PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>
 
 SELECT  DISTINCT ?section ?titleDisease ?paperTitle ?completePaper ?labelATCLevel5
 {
-    ?paragraph a d4covid:Paragraph .
+    {?paragraph a d4covid:Paragraph .
         ?paragraph d4covid:section ?section .
         ?paper d4covid:contains ?paragraph .
         ?paper dc:title ?paperTitle . 
         ?paper rdfs:seeAlso ?completePaper .    
         ?paper d4covid:mentions ?activeSubstance .
         ?activeSubstance skos:notation 'L03AX'^^xsd:string . 
-        ?level5Substance rdfs:subClassOf ?activeSubstance  . 
-        ?paper d4covid:mentions ?level5Substance .
-        ?level5Substance skos:prefLabel ?labelATCLevel5 .
         ?paragraph d4covid:mentions ?disease .
         ?disease a d4covid:Disease .
         ?disease d4covid:MESHCode 'C000657245' .   
-        ?disease dc:title ?titleDisease .             
+        ?disease dc:title ?titleDisease .   }
+UNION
+{
+        ?paragraph a d4covid:Paragraph .
+        ?paragraph d4covid:section ?section .
+        ?paper d4covid:contains ?paragraph .
+        ?paper dc:title ?paperTitle . 
+        ?paper rdfs:seeAlso ?completePaper .    
+        ?paper d4covid:mentions ?L5LevelSubstance .
+        ?activeSubstance skos:notation 'L03AX'^^xsd:string . 
+        ?L5LevelSubstance  rdfs:subClassOf ?activeSubstance .
+        ?L5LevelSubstance skos:prefLabel ?labelATCLevel5 .
+        ?paragraph d4covid:mentions ?disease .
+        ?disease a d4covid:Disease .
+        ?disease d4covid:MESHCode 'C000657245' .   
+        ?disease dc:title ?titleDisease . }
 }
+
+
 
 
 
 Immunostimulants related to COVID-19? (ordered by specificity)
 #Con ranking: los documentos que contengan los ATC más específicos aparecerán primero.
 PREFIX d4covid:<https://w3id.org/def/DRUGS4COVID19#>
-PREFIX dc: <http://purl.org/dc/terms/>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
 PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX skos:<http://www.w3.org/2004/02/skos/core#>
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>
 
-
-
-
-SELECT ?title ?problem ?codATC4 ?codATC5
-WHERE {
-        ?paper a d4covid:Paper .
-              ?paper d4covid:title ?title .
-        ?paper d4covid:problem ?problem . 
-             ?paper d4covid:mentions ?disorder .
-             # check SNOMED code for COVID-19
-             ?disease d4covid:SNOMEDCode 'COVID-19' .   
-        ?paper d4covid:mentions ?chemicalSubstance .
-             ?chemicalSubstance a d4covid:ChemicalSubstance .
-             ?chemicalSubstance d4covid:codigoATC3  ?codATC3 .
-             FILTER(?codATC3='L03A') .
-        OPTIONAL {?chemicalSubstance d4covid:codigoATC4 ?codATC4 .
-              FILTER (STRSTARTS(?codATC4,'L03A'))}
-             OPTIONAL {?chemicalSubstance d4covid:codigoATC5 ?codATC5 .
-              FILTER (STRSTARTS(?codATC5,?codATC4))}
-             BIND (IF(BOUND(?codATC5),3,0)+IF(BOUND(?codATC4),2,0)+IF(BOUND(?codATC3),1,0) AS ?score)
+SELECT  DISTINCT ?section ?titleDisease ?paperTitle ?completePaper ?labelATCLevel5
+{
+    {?paragraph a d4covid:Paragraph .
+        ?paragraph d4covid:section ?section .
+        ?paper d4covid:contains ?paragraph .
+        ?paper dc:title ?paperTitle . 
+        ?paper rdfs:seeAlso ?completePaper .    
+        ?paper d4covid:mentions ?activeSubstance .
+        ?activeSubstance skos:notation 'L03AX'^^xsd:string . 
+        ?paragraph d4covid:mentions ?disease .
+        ?disease a d4covid:Disease .
+        ?disease d4covid:MESHCode 'C000657245' .   
+        ?disease dc:title ?titleDisease .   }
+UNION
+{
+        ?paragraph a d4covid:Paragraph .
+        ?paragraph d4covid:section ?section .
+        ?paper d4covid:contains ?paragraph .
+        ?paper dc:title ?paperTitle . 
+        ?paper rdfs:seeAlso ?completePaper .    
+        ?paper d4covid:mentions ?L5LevelSubstance .
+        ?activeSubstance skos:notation 'L03AX'^^xsd:string . 
+        ?L5LevelSubstance  rdfs:subClassOf ?activeSubstance .
+        ?L5LevelSubstance skos:prefLabel ?labelATCLevel5 .
+        ?paragraph d4covid:mentions ?disease .
+        ?disease a d4covid:Disease .
+        ?disease d4covid:MESHCode 'C000657245' .   
+        ?disease dc:title ?titleDisease . }
+BIND (IF(BOUND(?L5LevelSubstance),5,0)+IF(BOUND(?activeSubstance),1,0)AS ?score)
 }
 ORDER BY DESC(?score)
 
