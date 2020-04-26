@@ -26,3 +26,6 @@ do
   echo "Normalizing columns bionlp_drugs_$j in paragraphs file"
   python3 normalization-twocolumns.py -f paragraphs-bionlp_drugs_C$j.csv -c bionlp_drugs_C$j -c2 bionlp_drugs_N$j -s ,
 done
+
+
+python3 preparation.py -f paragraphs.csv

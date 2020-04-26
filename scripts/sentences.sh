@@ -13,9 +13,9 @@ curl -g "https://librairy.linkeddata.es/solr/covid-sentences/select?q=*:*&wt=csv
 
 # Generating id,sentence,paper
 
-awk -F "\"*-\"*" '{print $1"-"$2","$1","$2}' sentences-id.csv >> tmp.csv
+awk -F "\"*-\"*" '{print "\""$1"-"$2"\",\""$1"\",\""$2"\""}' sentences-id.csv > tmp.csv
 mv tmp.csv sentences-id.csv
-sed -i '1s/.*/id,paper,sentence/' sentences-id.csv
+sed -i '1s/.*/\"id\",\"paper\",\"sentence\"/' sentences-id.csv
 
 declare -a normalization=("bionlp_atc1_t" "bionlp_atc2_t" "bionlp_atc3_t" "bionlp_atc4_t" "bionlp_atc5_t" "scispacy_diseases_t" "scispacy_chemicals_t")
 
@@ -24,3 +24,5 @@ do
   echo "Normalizing column $j in sentences file"
   python3 normalize.py -f sentences-$j.csv -c $j
 done
+
+python3 preparation.py -f sentences.csv

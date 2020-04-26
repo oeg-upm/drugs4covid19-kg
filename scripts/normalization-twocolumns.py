@@ -28,14 +28,14 @@ def normalization():
         print("No input the correct arguments, run pip3 normalize.py -h to see the help)")
         sys.exit()
 
-    output_file = "id," + col + "," + col2 + "\n"
+    output_file = "\"id\",\"" + col + "\",\"" + col2 + "\"\n"
     for row in range(len(data[col])):
         if isinstance(data[col][row], str):
             values_col = data[col][row].replace("\\,", "\\;").split(sep)
             values_col2 = data[col2][row].replace("\\,", "\\;").split(sep)
             for value in range(len(values_col)):
-                output_file += data['id'][row] + "," + str(values_col[value]).replace("\\;", ",").replace("\\", "-")\
-                               + ",\"" + str(values_col2[value]).replace("\\;", ",").replace("\\", "-") + "\"\n"
+                output_file += "\"" + data['id'][row] + "\",\"" + str(values_col[value]).replace("\\;", ",").replace("\\", "-")\
+                               + "\",\"" + str(values_col2[value]).replace("\\;", ",").replace("\\", "-") + "\"\n"
 
         if row % 100000 == 0:
             print("Normalizing row: "+str(row))
