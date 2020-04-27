@@ -1,17 +1,19 @@
 import React from 'react'
 import {Divider, Row, Col, Button, Typography} from 'antd'
 import {GithubOutlined} from '@ant-design/icons'
-import {DiW3C} from 'react-icons/di'
+import {RiDownload2Line} from 'react-icons/ri'
 import KgImage from '../assets/kg.svg'
 import Layout from '../components/Layout'
-import {virtuosoQueries} from '../api/queries'
+import {virtuosoQueries, rdfDumps} from '../api/queries'
 import QueryCard from '../components/queryCard'
+import RdfTimeLine from '../components/RdfTimeLine'
 const {Text, Title, Paragraph} = Typography
 export default class Kg extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            queries:virtuosoQueries
+            queries:virtuosoQueries,
+            lastRdfDump:rdfDumps[0].link
         }
         
     }
@@ -42,18 +44,25 @@ export default class Kg extends React.Component{
             <Divider></Divider>
             <Row>
                 <Col>
-                <Title level={4}>Useful Link:</Title>
+                <Title level={4}>Useful Links:</Title>
 
                 </Col>
             </Row>
-            <Row gutter={[16,16]}>
+            <Row gutter={[16,16]} align="top">
                 <Col>
                     <Button href="https://github.com/oeg-upm/drugs4covid19-kg">Github Repository <GithubOutlined/></Button>
                 </Col>
                 <Col>
                     <Button href="https://w3id.org/def/DRUGS4COVID19">Drugs4Covid Ontology</Button>
+                </Col>
+                <Col>
+                    <Button href={this.state.lastRdfDump}>Drugs4Covid KG Dump (RDF)</Button>
                 </Col>                
+                <Col>
+                    <Button href="#rdfDumps">Check historic KG Dumps</Button>
+                </Col>      
             </Row>
+
             <Divider></Divider>
             <Row style={{marginTop:16}} gutter={[16,16]} align="top">
             {this.state.queries.map((query, idx) => (
@@ -61,7 +70,21 @@ export default class Kg extends React.Component{
                     <QueryCard key={idx} data={query}/>                
                 </Col>
             ))}
+            <Divider></Divider>
             </Row>
+
+            <section id="rdfDumps">
+                <Row>
+                    <Col>
+                        <Title level={3}>RDF Dumps Timeline</Title>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col span={24}>
+                        <RdfTimeLine key="1" total={-1}></RdfTimeLine>
+                    </Col>
+                </Row>
+            </section>
 
         </Layout>
     )
