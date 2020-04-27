@@ -1,8 +1,6 @@
 ﻿I Queries for KG
 # 1. Articles discussing amphotericin B and COVID-19
 Paragraphs that mention a certain active substance and a certain disorder, and the name and source of the corresponding paper.
-
-
 Instances: amphotericin B , Disorder: COVID-19 MESHCode C000657245
 
 
@@ -36,7 +34,7 @@ WHERE {
 
 
 #2 Articles discussing drugs of the amphotericin B family (same ATC4) and COVID-19
-with upper level ATC4Code:(ATC4 of amphotericin B:)
+Paragraphs that mention drugs of the amphotericin B family (same ATC4) and COVID-19, and the title and source of the corresponding paper.
 
 PREFIX d4covid:<https://w3id.org/def/DRUGS4COVID19#>
 PREFIX dc: <http://purl.org/dc/elements/1.1/>
@@ -69,10 +67,8 @@ WHERE
 
 
 # 3. Immunostimulants related to COVID-19
-Documents that mention other immunostimulants in ATC (ATC code L03AX) and all of the ATCs in lower levels and the disease COVID-19 
-We should add “and related diseases” if the annotation “mapping” which corresponds to related diseases is mapped to the KG. 
-This query can be ranked, the results with more specific levels in the ATC codes can appear first.
-Motivation: Documents that mention the BCG vaccine (ATC code L03AX03) (vaccine against the tuberculosis Bacteria) because there are studies that link the vaccine with partial immunization  to COVID-19. 
+Documents that mention other immunostimulants in ATC (ATC code L03AX) and all of the ATCs in lower levels and the disease COVID-19 , the title and source of the corresponding paper.
+Motivation: Documents that mention the BCG vaccine (ATC code L03AX03) (vaccine against the tuberculosis Bacteria), because there are studies that link the vaccine with partial immunization to COVID-19. 
 
 
 PREFIX d4covid:<https://w3id.org/def/DRUGS4COVID19#>
@@ -116,6 +112,7 @@ UNION
 
 
 #4. Immunostimulants related to COVID-19? (ordered by specificity)
+Documents that mention other immunostimulants in ATC (ATC code L03AX) and all of the ATCs in lower levels and the disease COVID-19 , the title and source of the corresponding paper.
 With ranking: the documents that contain the more specific ATC will appear first.
 PREFIX d4covid:<https://w3id.org/def/DRUGS4COVID19#>
 PREFIX dc: <http://purl.org/dc/elements/1.1/>
@@ -159,9 +156,7 @@ ORDER BY DESC(?score)
 
 
 #5. Diseases related to drugs that combine  immunosuppressant  and antimalarial activities with macrolide antibiotics
-Paragraphs with drugs that combine immunosuppressant  and antimalarial activities with macrolide antibiotics, the diseases that appear in these paragraphs, and the title and problem of the corresponding paper. 
-Use case last hackaton.
-We probably can get more information from diseases once the KG is created.
+Paragraphs with drugs that combine immunosuppressant  and antimalarial activities with macrolide antibiotics and the diseases that appear in these document.
 The drugs that combine  immunosuppressant  and antimalarial activities have the active ingredient P01BA02.
 The macrolide antibiotics belong to the therapeutic group  J01FA;
 
@@ -195,7 +190,7 @@ WHERE {
           
 
 #6.  Active substances discussed with Pneumonia and COVID-19
-Paragraphs that mention pneumonia and COVID-19, the active ingredients that are mentioned in these paragraphs and the title   in their corresponding papers. 
+Paragraphs that mention pneumonia and COVID-19, the active ingredients that are mentioned in these paragraphs and the title in their corresponding papers. 
 
 
 
@@ -233,11 +228,9 @@ WHERE {
 
 
 #7. Active substances discussed with coagulation activation and COVID-19
-Paragraphs that mention the disorders coagulation activation and COVID-19, the active ingredients that appear in these paragraphs, the corresponding paper title and problem.
+Paragraphs that mention the disorders coagulation activation and COVID-19, the active ingredients that appear in these paragraphs and the corresponding paper title.
 Query proposed by a medical doctor. There is a need to block coagulation activation of patients with COVID-19. Necrosis problems have been observed in patients with COVID-19.
 
-
-Same as #6 instead with COVID-19 and coagulation activation.
 
 PREFIX d4covid:<https://w3id.org/def/DRUGS4COVID19#>
 PREFIX dc: <http://purl.org/dc/elements/1.1/>
