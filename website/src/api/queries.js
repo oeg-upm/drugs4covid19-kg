@@ -43,62 +43,7 @@ const rdfDumps = [
         text:'Download RDF',
         date:'26-04-2020',
         link:'https://delicias.dia.fi.upm.es/nextcloud/index.php/s/tGWSyaoc3aSt4c9/download'
-    },
-    {
-        text:'Download RDF',
-        date:'23-04-2020',
-        link:'https://delicias.dia.fi.upm.es/nextcloud/index.php/s/tGWSyaoc3aSt4c9/download'
-    },
-    {
-        text:'Download RDF',
-        date:'21-04-2020',
-        link:'https://delicias.dia.fi.upm.es/nextcloud/index.php/s/tGWSyaoc3aSt4c9/download'
-    },
-    {
-        text:'Download RDF',
-        date:'20-04-2020',
-        link:'https://delicias.dia.fi.upm.es/nextcloud/index.php/s/tGWSyaoc3aSt4c9/download'
-    },
-    {
-        text:'Download RDF',
-        date:'26-04-2020',
-        link:'https://delicias.dia.fi.upm.es/nextcloud/index.php/s/tGWSyaoc3aSt4c9/download'
-    },
-    {
-        text:'Download RDF',
-        date:'23-04-2020',
-        link:'https://delicias.dia.fi.upm.es/nextcloud/index.php/s/tGWSyaoc3aSt4c9/download'
-    },
-    {
-        text:'Download RDF',
-        date:'21-04-2020',
-        link:'https://delicias.dia.fi.upm.es/nextcloud/index.php/s/tGWSyaoc3aSt4c9/download'
-    },
-    {
-        text:'Download RDF',
-        date:'20-04-2020',
-        link:'https://delicias.dia.fi.upm.es/nextcloud/index.php/s/tGWSyaoc3aSt4c9/download'
-    },
-    {
-        text:'Download RDF',
-        date:'26-04-2020',
-        link:'https://delicias.dia.fi.upm.es/nextcloud/index.php/s/tGWSyaoc3aSt4c9/download'
-    },
-    {
-        text:'Download RDF',
-        date:'23-04-2020',
-        link:'https://delicias.dia.fi.upm.es/nextcloud/index.php/s/tGWSyaoc3aSt4c9/download'
-    },
-    {
-        text:'Download RDF',
-        date:'21-04-2020',
-        link:'https://delicias.dia.fi.upm.es/nextcloud/index.php/s/tGWSyaoc3aSt4c9/download'
-    },
-    {
-        text:'Download RDF',
-        date:'20-04-2020',
-        link:'https://delicias.dia.fi.upm.es/nextcloud/index.php/s/tGWSyaoc3aSt4c9/download'
-    },
+    }
 
 ]
 export {virtuosoQueries, rdfDumps}
