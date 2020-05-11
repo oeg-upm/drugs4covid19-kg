@@ -1,0 +1,769 @@
+  
+{
+  "@context": [
+    "http://www.w3.org/ns/csvw"
+  ],
+  "tables": [
+    {
+      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs.csv", 
+      
+      "dialect":{
+          "header": true,
+          "delimiter": "\s"
+        },
+      "tableSchema": {
+        "primaryKey": "id",
+        "foreignKey": [{
+          "columnReference": "article_id_s",
+          "reference": {
+            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs.csv",
+            "columnReference": "article_id_s"
+            }
+          }
+        ],
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "datatype": "string",
+            "titles": "section_s"
+          },
+          {
+            "datatype": "string",
+            "titles": "article_id_s"
+          }
+        ]
+      }
+    },{
+      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_drugs_C1.csv", 
+      
+      "dialect":{
+          "header": true,
+          "delimiter": "\s"
+        },
+      "tableSchema": {
+        "primaryKey": "id",
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_drugs_C1"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_drugs_N1"
+          }
+        ]
+      }
+    },{
+      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_drugs_C2.csv", 
+      
+      "dialect":{
+          "header": true,
+          "delimiter": "\s"
+        },
+      "tableSchema": {
+        "primaryKey": "id",
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_drugs_C2"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_drugs_N2"
+          }
+        ]
+      }
+    },{
+      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_drugs_C3.csv", 
+      
+      "dialect":{
+          "header": true,
+          "delimiter": "\s"
+        },
+      "tableSchema": {
+        "primaryKey": "id",
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_drugs_C3"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_drugs_N3"
+          }
+        ]
+      }
+    },{
+      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_drugs_C4.csv", 
+      
+      "dialect":{
+          "header": true,
+          "delimiter": "\s"
+        },
+      "tableSchema": {
+        "primaryKey": "id",
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_drugs_C4"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_drugs_N4"
+          }
+        ]
+      }
+    },{
+      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_drugs_C5.csv", 
+      
+      "dialect":{
+          "header": true,
+          "delimiter": "\s"
+        },
+      "tableSchema": {
+        "primaryKey": "id",
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_drugs_C5"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_drugs_N5"
+          }
+        ]
+      }
+    },{
+      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C1.csv", 
+      
+      "dialect":{
+          "header": true,
+          "delimiter": "\s"
+        },
+      "tableSchema": {
+        "primaryKey": "id",
+        "foreignKey": [{
+          "columnReference": "bionlp_diseases_C1",
+          "reference": {
+            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv",
+            "columnReference": "id"
+            }
+          }
+        ],
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_diseases_C1"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_diseases_N1"
+          }
+        ]
+      }
+    },{
+      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C2.csv", 
+      
+      "dialect":{
+          "header": true,
+          "delimiter": "\s"
+        },
+      "tableSchema": {
+        "primaryKey": "id",
+        "foreignKey": [{
+          "columnReference": "bionlp_diseases_C2",
+          "reference": {
+            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv",
+            "columnReference": "id"
+            }
+          }
+        ],
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_diseases_C2"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_diseases_N2"
+          }
+        ]
+      }
+    },{
+      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C3.csv", 
+      
+      "dialect":{
+          "header": true,
+          "delimiter": "\s"
+        },
+      "tableSchema": {
+        "primaryKey": "id",
+        "foreignKey": [{
+          "columnReference": "bionlp_diseases_C3",
+          "reference": {
+            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv",
+            "columnReference": "id"
+            }
+          }
+        ],
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_diseases_C3"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_diseases_N3"
+          }
+        ]
+      }
+    },{
+      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C4.csv", 
+      
+      "dialect":{
+          "header": true,
+          "delimiter": "\s"
+        },
+      "tableSchema": {
+        "primaryKey": "id",
+        "foreignKey": [{
+          "columnReference": "bionlp_diseases_C4",
+          "reference": {
+            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv",
+            "columnReference": "id"
+            }
+          }
+        ],
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_diseases_C4"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_diseases_N4"
+          }
+        ]
+      }
+    },{
+      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C5.csv", 
+      
+      "dialect":{
+          "header": true,
+          "delimiter": "\s"
+        },
+      "tableSchema": {
+        "primaryKey": "id",
+        "foreignKey": [{
+          "columnReference": "bionlp_diseases_C5",
+          "reference": {
+            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv",
+            "columnReference": "id"
+            }
+          }
+        ],
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_diseases_C5"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_diseases_N5"
+          }
+        ]
+      }
+    },{
+      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C6.csv", 
+      
+      "dialect":{
+          "header": true,
+          "delimiter": "\s"
+        },
+      "tableSchema": {
+        "primaryKey": "id",
+        "foreignKey": [{
+          "columnReference": "bionlp_diseases_C6",
+          "reference": {
+            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv",
+            "columnReference": "id"
+            }
+          }
+        ],
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_diseases_C6"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_diseases_N6"
+          }
+        ]
+      }
+    },{
+      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C7.csv", 
+      
+      "dialect":{
+          "header": true,
+          "delimiter": "\s"
+        },
+      "tableSchema": {
+        "primaryKey": "id",
+        "foreignKey": [{
+          "columnReference": "bionlp_diseases_C7",
+          "reference": {
+            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv",
+            "columnReference": "id"
+            }
+          }
+        ],
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_diseases_C7"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_diseases_N7"
+          }
+        ]
+      }
+    },{
+      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C8.csv", 
+      
+      "dialect":{
+          "header": true,
+          "delimiter": "\s"
+        },
+      "tableSchema": {
+        "primaryKey": "id",
+        "foreignKey": [{
+          "columnReference": "bionlp_diseases_C8",
+          "reference": {
+            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv",
+            "columnReference": "id"
+            }
+          }
+        ],
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_diseases_C8"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_diseases_N8"
+          }
+        ]
+      }
+    },{
+      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C9.csv", 
+      
+      "dialect":{
+          "header": true,
+          "delimiter": "\s"
+        },
+      "tableSchema": {
+        "primaryKey": "id",
+        "foreignKey": [{
+          "columnReference": "bionlp_diseases_C9",
+          "reference": {
+            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv",
+            "columnReference": "id"
+            }
+          }
+        ],
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_diseases_C9"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_diseases_N9"
+          }
+        ]
+      }
+    },{
+      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C10.csv", 
+      
+      "dialect":{
+          "header": true,
+          "delimiter": "\s"
+        },
+      "tableSchema": {
+        "primaryKey": "id",
+        "foreignKey": [{
+          "columnReference": "bionlp_diseases_C10",
+          "reference": {
+            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv",
+            "columnReference": "id"
+            }
+          }
+        ],
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_diseases_C10"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_diseases_N10"
+          }
+        ]
+      }
+    },{
+      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C11.csv", 
+      
+      "dialect":{
+          "header": true,
+          "delimiter": "\s"
+        },
+      "tableSchema": {
+        "primaryKey": "id",
+        "foreignKey": [{
+          "columnReference": "bionlp_diseases_C11",
+          "reference": {
+            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv",
+            "columnReference": "id"
+            }
+          }
+        ],
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_diseases_C11"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_diseases_N11"
+          }
+        ]
+      }
+    },{
+      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C12.csv", 
+      
+      "dialect":{
+          "header": true,
+          "delimiter": "\s"
+        },
+      "tableSchema": {
+        "primaryKey": "id",
+        "foreignKey": [{
+          "columnReference": "bionlp_diseases_C12",
+          "reference": {
+            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv",
+            "columnReference": "id"
+            }
+          }
+        ],
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_diseases_C12"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_diseases_N12"
+          }
+        ]
+      }
+    },{
+      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C13.csv", 
+      
+      "dialect":{
+          "header": true,
+          "delimiter": "\s"
+        },
+      "tableSchema": {
+        "primaryKey": "id",
+        "foreignKey": [{
+          "columnReference": "bionlp_diseases_C13",
+          "reference": {
+            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv",
+            "columnReference": "id"
+            }
+          }
+        ],
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_diseases_C13"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_diseases_N13"
+          }
+        ]
+      }
+    },{
+      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C14.csv", 
+      
+      "dialect":{
+          "header": true,
+          "delimiter": "\s"
+        },
+      "tableSchema": {
+        "primaryKey": "id",
+        "foreignKey": [{
+          "columnReference": "bionlp_diseases_C14",
+          "reference": {
+            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv",
+            "columnReference": "id"
+            }
+          }
+        ],
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_diseases_C14"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_diseases_N14"
+          }
+        ]
+      }
+    },{
+      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C15.csv", 
+      
+      "dialect":{
+          "header": true,
+          "delimiter": "\s"
+        },
+      "tableSchema": {
+        "primaryKey": "id",
+        "foreignKey": [{
+          "columnReference": "bionlp_diseases_C15",
+          "reference": {
+            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv",
+            "columnReference": "id"
+            }
+          }
+        ],
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_diseases_C15"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_diseases_N15"
+          }
+        ]
+      }
+    },{
+      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C16.csv", 
+      
+      "dialect":{
+          "header": true,
+          "delimiter": "\s"
+        },
+      "tableSchema": {
+        "primaryKey": "id",
+        "foreignKey": [{
+          "columnReference": "bionlp_diseases_C16",
+          "reference": {
+            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv",
+            "columnReference": "id"
+            }
+          }
+        ],
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_diseases_C16"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_diseases_N16"
+          }
+        ]
+      }
+    },{
+      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C17.csv", 
+      
+      "dialect":{
+          "header": true,
+          "delimiter": "\s"
+        },
+      "tableSchema": {
+        "primaryKey": "id",
+        "foreignKey": [{
+          "columnReference": "bionlp_diseases_C17",
+          "reference": {
+            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv",
+            "columnReference": "id"
+            }
+          }
+        ],
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_diseases_C17"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_diseases_N17"
+          }
+        ]
+      }
+    },{
+      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C18.csv", 
+      
+      "dialect":{
+          "header": true,
+          "delimiter": "\s"
+        },
+      "tableSchema": {
+        "primaryKey": "id",
+        "foreignKey": [{
+          "columnReference": "bionlp_diseases_C18",
+          "reference": {
+            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv",
+            "columnReference": "id"
+            }
+          }
+        ],
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_diseases_C18"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_diseases_N18"
+          }
+        ]
+      }
+    },{
+      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C19.csv", 
+      
+      "dialect":{
+          "header": true,
+          "delimiter": "\s"
+        },
+      "tableSchema": {
+        "primaryKey": "id",
+        "foreignKey": [{
+          "columnReference": "bionlp_diseases_C19",
+          "reference": {
+            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv",
+            "columnReference": "id"
+            }
+          }
+        ],
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_diseases_C19"
+          },
+          {
+            "datatype": "string",
+            "titles": "bionlp_diseases_N19"
+          }
+        ]
+      }
+    }
+  ]
+}
