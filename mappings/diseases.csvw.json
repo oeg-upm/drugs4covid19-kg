@@ -8,8 +8,7 @@
       "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv", 
       
       "dialect":{
-          "header": true,
-          "delimiter": "\s"
+          "header": true
         },
       "tableSchema": {
         "primaryKey": "id",
@@ -32,8 +31,7 @@
       "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases-mappings.csv", 
       
       "dialect":{
-          "header": true,
-          "delimiter": "\s"
+          "header": true
         },
       "tableSchema": {
         "primaryKey": "id",
@@ -43,6 +41,7 @@
             "titles": "id"
           },
           {
+            "separator": ",",
             "datatype": "string",
             "titles": "mappings"
           }
@@ -52,8 +51,7 @@
       "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases-synonyms.csv", 
       
       "dialect":{
-          "header": true,
-          "delimiter": "\s"
+          "header": true
         },
       "tableSchema": {
         "primaryKey": "id",
@@ -63,6 +61,7 @@
             "titles": "id"
           },
           {
+            "separator": ",",
             "datatype": "string",
             "titles": "synonyms"
           }
@@ -72,8 +71,7 @@
       "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases-parent.csv", 
       
       "dialect":{
-          "header": true,
-          "delimiter": "\s"
+          "header": true
         },
       "tableSchema": {
         "primaryKey": "id",
@@ -91,6 +89,7 @@
             "titles": "id"
           },
           {
+            "separator": ",",
             "datatype": "string",
             "titles": "parent"
           }
