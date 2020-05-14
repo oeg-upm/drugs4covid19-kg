@@ -18,7 +18,7 @@ prefixes:
 mappings:
   disease:
     sources:
-      - [/home/dchaves/SDM-RDFizer/example/diseases.csv~csv]
+      - [/data/diseases.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/disease/$(id)
     po:
       - [rdf:type, https://w3id.org/def/DRUGS4COVID19#Disease~iri]
@@ -29,21 +29,21 @@ mappings:
 
   mapping:
     sources:
-      - [/home/dchaves/SDM-RDFizer/example/diseases-mappings.csv~csv]
+      - [/data/diseases-mappings.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/disease/$(id)
     po:
       - [d4covid:mapping, $(mappings)]
 
   synonym:
     sources:
-      - [/home/dchaves/SDM-RDFizer/example/diseases-synonyms.csv~csv]
+      - [/data/diseases-synonyms.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/disease/$(id)
     po:
       - [d4covid:synonym, $(synonyms)]
 
   parent:
     sources:
-      - [/home/dchaves/SDM-RDFizer/example/diseases-parent.csv~csv]
+      - [/data/diseases-parent.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/disease/$(id)
     po:
       - p: d4covid:isNarrowerThan

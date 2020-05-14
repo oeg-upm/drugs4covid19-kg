@@ -1,0 +1,22 @@
+version: "2"
+services:
+  sdmrdfizer:
+    container_name: sdmrdfizer
+    image: oegdataintegration/sdmrdfizer:3.0
+    shm_size: '50gb'
+    volumes:
+      - ./scripts:/data
+      - ./results/:/results
+      - ./mappings:/mappings
+
+  virtuoso:
+    image: tenforce/virtuoso:7.2.5
+    container_name: drugs4covid
+    environment:
+      SPARQL_UPDATE: "true"
+      DEFAULT_GRAPH: "http://kg.drugs4covid.oeg-upm.net/"
+      DBA_PASSWORD: "dba"
+    volumes:
+      - ./results/:/data
+    ports:
+      - "8890:8890"

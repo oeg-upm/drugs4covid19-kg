@@ -19,7 +19,7 @@ prefixes:
 mappings:
   paper:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/articles.csv~csv]
+      - [/data/articles.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/paper/$(id)
     po:
       - [rdf:type, https://w3id.org/def/DRUGS4COVID19#Paper~iri]
@@ -34,14 +34,14 @@ mappings:
 
   annotation_problem:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/articles-annot_cliner_problems_t.csv~csv]
+      - [/data/articles-annot_cliner_problems_t.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/paper/$(id)
     po:
       - [d4covid:problem, $(annot_cliner_problems_t)]
 
   scispacy_diseases_t:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/articles-scispacy_diseases_t.csv~csv]
+      - [/data/articles-scispacy_diseases_t.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/paper/$(id)
     po:
       - p: d4covid:mentions
@@ -55,7 +55,7 @@ mappings:
 
   activesubstance4:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/articles-labels4_t.csv~csv]
+      - [/data/articles-labels4_t.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/paper/$(id)
     po:
       - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(labels4_t)~iri]
@@ -63,7 +63,7 @@ mappings:
 
   activesubstance5:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/articles-labels5_t.csv~csv]
+      - [/data/articles-labels5_t.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/paper/$(id)
     po:
       - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(labels5_t)~iri]
@@ -71,7 +71,7 @@ mappings:
 
   disease:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv~csv]
+      - [/data/diseases.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/disease/$(id)
     po:
       - [rdf:type, https://w3id.org/def/DRUGS4COVID19#Disease~iri]
@@ -82,21 +82,21 @@ mappings:
 
   mapping:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases-mappings.csv~csv]
+      - [/data/diseases-mappings.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/disease/$(id)
     po:
       - [d4covid:mapping, $(mappings)]
 
   synonym:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases-synonyms.csv~csv]
+      - [/data/diseases-synonyms.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/disease/$(id)
     po:
       - [d4covid:synonym, $(synonyms)]
 
   parent:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases-parent.csv~csv]
+      - [/data/diseases-parent.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/disease/$(id)
     po:
       - p: d4covid:isNarrowerThan
@@ -110,7 +110,7 @@ mappings:
 
   paragraph:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs.csv~csv]
+      - [/data/paragraphs.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
     po:
       - [rdf:type, https://w3id.org/def/DRUGS4COVID19#Paragraph~iri]
@@ -120,7 +120,7 @@ mappings:
 
   paper2:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs.csv~csv]
+      - [/data/paragraphs.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/paper/$(article_id_s)
     po:
       - p: d4covid:contains
@@ -134,7 +134,7 @@ mappings:
 
   bionlp_drugs_C1:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_drugs_C1.csv~csv]
+      - [/data/paragraphs-bionlp_drugs_C1.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
     po:
       - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(bionlp_drugs_C1)~iri]
@@ -142,7 +142,7 @@ mappings:
 
   bionlp_drugs_C2:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_drugs_C2.csv~csv]
+      - [/data/paragraphs-bionlp_drugs_C2.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
     po:
       - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(bionlp_drugs_C2)~iri]
@@ -150,7 +150,7 @@ mappings:
 
   bionlp_drugs_C3:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_drugs_C3.csv~csv]
+      - [/data/paragraphs-bionlp_drugs_C3.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
     po:
       - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(bionlp_drugs_C3)~iri]
@@ -158,7 +158,7 @@ mappings:
 
   bionlp_drugs_C4:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_drugs_C4.csv~csv]
+      - [/data/paragraphs-bionlp_drugs_C4.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
     po:
       - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(bionlp_drugs_C4)~iri]
@@ -166,7 +166,7 @@ mappings:
 
   bionlp_drugs_C5:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_drugs_C5.csv~csv]
+      - [/data/paragraphs-bionlp_drugs_C5.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
     po:
       - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(bionlp_drugs_C5)~iri]
@@ -174,7 +174,7 @@ mappings:
 
   bionlp_diseases_C1:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C1.csv~csv]
+      - [/data/paragraphs-bionlp_diseases_C1.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
     po:
       - p: d4covid:mentions
@@ -188,7 +188,7 @@ mappings:
 
   bionlp_diseases_C2:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C2.csv~csv]
+      - [/data/paragraphs-bionlp_diseases_C2.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
     po:
       - p: d4covid:mentions
@@ -202,7 +202,7 @@ mappings:
 
   bionlp_diseases_C3:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C3.csv~csv]
+      - [/data/paragraphs-bionlp_diseases_C3.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
     po:
       - p: d4covid:mentions
@@ -216,7 +216,7 @@ mappings:
 
   bionlp_diseases_C4:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C4.csv~csv]
+      - [/data/paragraphs-bionlp_diseases_C4.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
     po:
       - p: d4covid:mentions
@@ -230,7 +230,7 @@ mappings:
 
   bionlp_diseases_C5:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C5.csv~csv]
+      - [/data/paragraphs-bionlp_diseases_C5.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
     po:
       - p: d4covid:mentions
@@ -244,7 +244,7 @@ mappings:
 
   bionlp_diseases_C6:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C6.csv~csv]
+      - [/data/paragraphs-bionlp_diseases_C6.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
     po:
       - p: d4covid:mentions
@@ -258,7 +258,7 @@ mappings:
 
   bionlp_diseases_C7:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C7.csv~csv]
+      - [/data/paragraphs-bionlp_diseases_C7.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
     po:
       - p: d4covid:mentions
@@ -272,7 +272,7 @@ mappings:
 
   bionlp_diseases_C8:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C8.csv~csv]
+      - [/data/paragraphs-bionlp_diseases_C8.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
     po:
       - p: d4covid:mentions
@@ -286,7 +286,7 @@ mappings:
 
   bionlp_diseases_C9:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C9.csv~csv]
+      - [/data/paragraphs-bionlp_diseases_C9.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
     po:
       - p: d4covid:mentions
@@ -300,7 +300,7 @@ mappings:
 
   bionlp_diseases_C10:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C10.csv~csv]
+      - [/data/paragraphs-bionlp_diseases_C10.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
     po:
       - p: d4covid:mentions
@@ -314,7 +314,7 @@ mappings:
 
   bionlp_diseases_C11:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C11.csv~csv]
+      - [/data/paragraphs-bionlp_diseases_C11.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
     po:
       - p: d4covid:mentions
@@ -328,7 +328,7 @@ mappings:
 
   bionlp_diseases_C12:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C12.csv~csv]
+      - [/data/paragraphs-bionlp_diseases_C12.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
     po:
       - p: d4covid:mentions
@@ -342,7 +342,7 @@ mappings:
 
   bionlp_diseases_C13:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C13.csv~csv]
+      - [/data/paragraphs-bionlp_diseases_C13.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
     po:
       - p: d4covid:mentions
@@ -356,7 +356,7 @@ mappings:
 
   bionlp_diseases_C14:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C14.csv~csv]
+      - [/data/paragraphs-bionlp_diseases_C14.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
     po:
       - p: d4covid:mentions
@@ -370,7 +370,7 @@ mappings:
 
   bionlp_diseases_C15:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C15.csv~csv]
+      - [/data/paragraphs-bionlp_diseases_C15.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
     po:
       - p: d4covid:mentions
@@ -384,7 +384,7 @@ mappings:
 
   bionlp_diseases_C16:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C16.csv~csv]
+      - [/data/paragraphs-bionlp_diseases_C16.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
     po:
       - p: d4covid:mentions
@@ -398,7 +398,7 @@ mappings:
 
   bionlp_diseases_C17:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C17.csv~csv]
+      - [/data/paragraphs-bionlp_diseases_C17.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
     po:
       - p: d4covid:mentions
@@ -412,7 +412,7 @@ mappings:
 
   bionlp_diseases_C18:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C18.csv~csv]
+      - [/data/paragraphs-bionlp_diseases_C18.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
     po:
       - p: d4covid:mentions
@@ -426,7 +426,7 @@ mappings:
 
   bionlp_diseases_C19:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C19.csv~csv]
+      - [/data/paragraphs-bionlp_diseases_C19.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/paragraph/$(id)
     po:
       - p: d4covid:mentions
@@ -440,7 +440,7 @@ mappings:
 
   sentence:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/sentences.csv~csv]
+      - [/data/sentences.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/sentence/$(id)
     po:
       - [rdf:type, https://w3id.org/def/DRUGS4COVID19#Sentence~iri]
@@ -450,7 +450,7 @@ mappings:
 
   paper3:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/sentences-id.csv~csv]
+      - [/data/sentences-id.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/paper/$(paper)
     po:
       - p: d4covid:contains
@@ -464,14 +464,14 @@ mappings:
 
   annotation_chemicals_t:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/sentences-scispacy_chemicals_t.csv~csv]
+      - [/data/sentences-scispacy_chemicals_t.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/sentence/$(id)
     po:
       - [d4covid:mentions, $(scispacy_chemicals_t)]
 
   s_scispacy_diseases_t:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/sentences-scispacy_diseases_t.csv~csv]
+      - [/data/sentences-scispacy_diseases_t.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/sentence/$(id)
     po:
       - p: d4covid:mentions
@@ -485,7 +485,7 @@ mappings:
 
   bionlp_atc1:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/sentences-bionlp_atc1_t.csv~csv]
+      - [/data/sentences-bionlp_atc1_t.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/sentence/$(id)
     po:
       - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(bionlp_atc1_t)~iri]
@@ -493,7 +493,7 @@ mappings:
 
   bionlp_atc2:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/sentences-bionlp_atc2_t.csv~csv]
+      - [/data/sentences-bionlp_atc2_t.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/sentence/$(id)
     po:
       - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(bionlp_atc2_t)~iri]
@@ -501,7 +501,7 @@ mappings:
 
   bionlp_atc3:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/sentences-bionlp_atc3_t.csv~csv]
+      - [/data/sentences-bionlp_atc3_t.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/sentence/$(id)
     po:
       - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(bionlp_atc3_t)~iri]
@@ -509,7 +509,7 @@ mappings:
 
   bionlp_atc4:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/sentences-bionlp_atc4_t.csv~csv]
+      - [/data/sentences-bionlp_atc4_t.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/sentence/$(id)
     po:
       - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(bionlp_atc4_t)~iri]
@@ -517,7 +517,7 @@ mappings:
 
   bionlp_atc5:
     sources:
-      - [/home/dchaves/data-covid/drugs4covid19-kg/scripts/sentences-bionlp_atc5_t.csv~csv]
+      - [/data/sentences-bionlp_atc5_t.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/sentence/$(id)
     po:
       - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(bionlp_atc5_t)~iri]

@@ -18,7 +18,7 @@ prefixes:
 mappings:
   paper:
     sources:
-      - [/home/dchaves/SDM-RDFizer/example/articles.csv~csv]
+      - [/data/articles.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/paper/$(id)
     po:
       - [rdf:type, https://w3id.org/def/DRUGS4COVID19#Paper~iri]
@@ -33,14 +33,14 @@ mappings:
 
   annotation_problem:
     sources:
-      - [/home/dchaves/SDM-RDFizer/example/articles-annot_cliner_problems_t.csv~csv]
+      - [/data/articles-annot_cliner_problems_t.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/paper/$(id)
     po:
       - [d4covid:problem, $(annot_cliner_problems_t)]
 
   scispacy_diseases_t:
     sources:
-      - [/home/dchaves/SDM-RDFizer/example/articles-scispacy_diseases_t.csv~csv]
+      - [/data/articles-scispacy_diseases_t.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/paper/$(id)
     po:
       - p: d4covid:mentions
@@ -54,7 +54,7 @@ mappings:
 
   activesubstance4:
     sources:
-      - [/home/dchaves/SDM-RDFizer/example/articles-labels4_t.csv~csv]
+      - [/data/articles-labels4_t.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/paper/$(id)
     po:
       - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(labels4_t)~iri]
@@ -62,7 +62,7 @@ mappings:
 
   activesubstance5:
     sources:
-      - [/home/dchaves/SDM-RDFizer/example/articles-labels5_t.csv~csv]
+      - [/data/articles-labels5_t.csv~csv]
     s: https://w3id.org/def/DRUGS4COVID19/resource/paper/$(id)
     po:
       - [d4covid:mentions, http://purl.bioontology.org/ontology/UATC/$(labels5_t)~iri]
