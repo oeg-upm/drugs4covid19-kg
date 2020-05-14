@@ -27,6 +27,9 @@ mappings:
       - [dc:license, $(source_s)]
       - [rdfs:seeAlso, https://librairy.linkeddata.es/data/covid/select?q=id:$(id)~iri]
       - [rdfs:seeAlso, https://cord-19.apps.allenai.org/paper/$(id)~iri]
+      - [owl:sameAs, https://covid-19ds.data.dice-research.org/resource/$(id)~iri]
+      - [owl:sameAs, http://ns.inria.fr/covid19/$(id)~iri]
+      - [owl:sameAs, http://pubannotation.org/docs/sourcedb/CORD-19/sourceid/$(id)~iri]
 
   annotation_problem:
     sources:
