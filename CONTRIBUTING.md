@@ -11,7 +11,7 @@ Do you want to include your COVID19 resources in Drugs4Covid KG? You have multip
     2) Go to mappings file and add the corresponding rules according to Drugs4Covid ontology
     3) Make a pull request
 2) If your data is in RDF:
-    1) Go to the scripts folder and create an independient script to download the dataset directly to the virtuoso folder*
+    1) Go to the scripts folder and create an independient script to download the dataset directly to the /results/ folder*
 
 ## By template (for SPARQL endpoints):
 
@@ -19,4 +19,4 @@ Do you want to include your COVID19 resources in Drugs4Covid KG? You have multip
 1) Fill it providing us the class(es) of your resources according to Drugs4Covid ontology and some URI examples.
 
 
-*The virtuoso folder is automatically created in the root folder of the repo when docker-compose starts
+*The results folder is automatically created in the root folder of the repo when the docker-compose starts, and it is a shared volume among localhost, SDM-RDFizer and Virtuoso
