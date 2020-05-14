@@ -1,0 +1,206 @@
+{
+  "@context": [
+    "http://www.w3.org/ns/csvw"
+  ],
+  "tables": [
+    {
+      "url": "/data/sentences.csv", 
+      
+      "dialect":{
+          "header": true
+        },
+      "tableSchema": {
+        "primaryKey": "id",
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "datatype": "string",
+            "titles": "snomed_diseases_concept_id"
+          }
+        ]
+      }
+    },{
+      "url": "/data/sentences-scispacy_chemicals_t.csv", 
+      
+      "dialect":{
+          "header": true
+        },
+      "tableSchema": {
+        "primaryKey": "id,scispacy_chemicals_t",
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "datatype": "string",
+            "separator": "\\s",
+            "titles": "scispacy_chemicals_t"
+          }
+        ]
+      }
+    },{
+      "url": "/data/sentences-sentences-scispacy_diseases_t.csv", 
+      
+      "dialect":{
+          "header": true
+        },
+      "tableSchema": {
+        "primaryKey": "id,scispacy_diseases_t",
+        "foreignKey": [{
+          "columnReference": "scispacy_diseases_t",
+          "reference": {
+            "resource": "/data/diseases.csv",
+            "columnReference": "name_t"
+            }
+          }
+        ],
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "datatype": "string",
+            "separator": "\\s",
+            "titles": "scispacy_diseases_t"
+          }
+        ]
+      }
+    },{
+      "url": "/data/sentences-id.csv", 
+      
+      "dialect":{
+          "header": true
+        },
+      "tableSchema": {
+        "primaryKey": "id",
+        "foreignKey": [{
+          "columnReference": "id",
+          "reference": {
+            "resource": "/data/sentences.csv",
+            "columnReference": "id"
+            }
+          }
+        ],
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "datatype": "string",
+            "titles": "paper"
+          },
+          {
+            "datatype": "string",
+            "titles": "sentence"
+          }
+        ]
+      }
+    },{
+      "url": "/data/sentences-bionlp_atc1_t.csv", 
+      
+      "dialect":{
+          "header": true
+        },
+      "tableSchema": {
+        "primaryKey": "id,bionlp_atc1_t",
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "datatype": "string",
+            "separator": "\\s",
+            "titles": "bionlp_atc1_t"
+          }
+        ]
+      }
+    },{
+      "url": "/data/sentences-bionlp_atc2_t.csv", 
+      
+      "dialect":{
+          "header": true
+        },
+      "tableSchema": {
+        "primaryKey": "id,bionlp_atc2_t",
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "datatype": "string",
+            "separator": "\\s",
+            "titles": "bionlp_atc2_t"
+          }
+        ]
+      }
+    },{
+      "url": "/data/sentences-bionlp_atc3_t.csv", 
+      
+      "dialect":{
+          "header": true
+        },
+      "tableSchema": {
+        "primaryKey": "id,bionlp_atc3_t",
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "datatype": "string",
+            "separator": "\\s",
+            "titles": "bionlp_atc3_t"
+          }
+        ]
+      }
+    },{
+      "url": "/data/sentences-bionlp_atc4_t.csv", 
+      
+      "dialect":{
+          "header": true
+        },
+      "tableSchema": {
+        "primaryKey": "id,bionlp_atc4_t",
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "datatype": "string",
+            "separator": "\\s",
+            "titles": "bionlp_atc4_t"
+          }
+        ]
+      }
+    },{
+      "url": "/data/sentences-bionlp_atc5_t.csv", 
+      
+      "dialect":{
+          "header": true
+        },
+      "tableSchema": {
+        "primaryKey": "id,bionlp_atc5_t",
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "datatype": "string",
+            "separator": "\\s",
+            "titles": "bionlp_atc5_t"
+          }
+        ]
+      }
+    }
+  ]
+}
