@@ -5,7 +5,7 @@
   ],
   "tables": [
     {
-      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv", 
+      "url": "/data/diseases.csv", 
       
       "dialect":{
           "header": true
@@ -28,7 +28,7 @@
         ]
       }
     },{
-      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases-mappings.csv", 
+      "url": "/data/diseases-mappings.csv", 
       
       "dialect":{
           "header": true
@@ -48,7 +48,7 @@
         ]
       }
     },{
-      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases-synonyms.csv", 
+      "url": "/data/diseases-synonyms.csv", 
       
       "dialect":{
           "header": true
@@ -68,7 +68,7 @@
         ]
       }
     },{
-      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases-parent.csv", 
+      "url": "/data/diseases-parent.csv", 
       
       "dialect":{
           "header": true
@@ -78,7 +78,7 @@
         "foreignKey": [{
           "columnReference": "parent",
           "reference": {
-            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv",
+            "resource": "/data/diseases.csv",
             "columnReference": "id"
             }
           }

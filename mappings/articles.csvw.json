@@ -1,0 +1,144 @@
+  
+{
+  "@context": [
+    "http://www.w3.org/ns/csvw"
+  ],
+  "tables": [
+    {
+      "url": "/data/article.csv", 
+      
+      "dialect":{
+          "header": true
+        },
+      "tableSchema": {
+        "primaryKey": "id",
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "datatype": "string",
+            "titles": "name_s"
+          },
+          {
+            "datatype": "string",
+            "titles": "source_s"
+          },
+          {
+            "datatype": "string",
+            "titles": "url_s"
+          }
+        ]
+      }
+    },{
+      "url": "/data/articles-labels4_t.csv", 
+      
+      "dialect":{
+          "header": true
+        },
+      "tableSchema": {
+        "primaryKey": "id,labels4_t",
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "separator": "\\s",
+            "datatype": "string",
+            "titles": "labels4_t"
+          }
+        ]
+      }
+    },{
+      "url": "/data/articles-labels5_t.csv", 
+      
+      "dialect":{
+          "header": true
+        },
+      "tableSchema": {
+        "primaryKey": "id,labels5_t",
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "separator": "\\s",
+            "datatype": "string",
+            "titles": "labels5_t"
+          }
+        ]
+      }
+    },{
+      "url": "/data/articles-annot_cliner_problems_t.csv", 
+      
+      "dialect":{
+          "header": true
+        },
+      "tableSchema": {
+        "primaryKey": "id,annot_cliner_problems_t",
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "separator": "\\s",
+            "datatype": "string",
+            "titles": "annot_cliner_problems_t"
+          }
+        ]
+      }
+    },{
+      "url": "/data/articles-annot_cliner_treatments_t.csv", 
+      
+      "dialect":{
+          "header": true
+        },
+      "tableSchema": {
+        "primaryKey": "id,annot_cliner_treatments_t",
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "separator": "\\s",
+            "datatype": "string",
+            "titles": "annot_cliner_treatments_t"
+          }
+        ]
+      }
+    },{
+      "url": "/data/articles-scispacy_diseases_t.csv", 
+      
+      "dialect":{
+          "header": true
+        },
+      "tableSchema": {
+        "foreignKey": [{
+          "columnReference": "scispacy_diseases_t",
+          "reference": {
+            "resource": "/data/diseases.csv",
+            "columnReference": "name_t"
+            }
+          }
+        ],
+        "primaryKey": "id,scispacy_diseases_t",
+        "columns": [
+          {
+            "datatype": "string",
+            "titles": "id"
+          },
+          {
+            "separator": "\\s",
+            "datatype": "string",
+            "titles": "scispacy_diseases_t"
+          }
+        ]
+      }
+    }
+  ]
+}

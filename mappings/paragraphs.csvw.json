@@ -5,7 +5,7 @@
   ],
   "tables": [
     {
-      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs.csv", 
+      "url": "/data/paragraphs.csv", 
       
       "dialect":{
           "header": true
@@ -15,7 +15,7 @@
         "foreignKey": [{
           "columnReference": "article_id_s",
           "reference": {
-            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs.csv",
+            "resource": "/data/paragraphs.csv",
             "columnReference": "article_id_s"
             }
           }
@@ -36,7 +36,7 @@
         ]
       }
     },{
-      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_drugs_C1.csv", 
+      "url": "/data/paragraphs-bionlp_drugs_C1.csv", 
       
       "dialect":{
           "header": true
@@ -61,7 +61,7 @@
         ]
       }
     },{
-      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_drugs_C2.csv", 
+      "url": "/data/paragraphs-bionlp_drugs_C2.csv", 
       
       "dialect":{
           "header": true
@@ -86,7 +86,7 @@
         ]
       }
     },{
-      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_drugs_C3.csv", 
+      "url": "/data/paragraphs-bionlp_drugs_C3.csv", 
       
       "dialect":{
           "header": true
@@ -111,7 +111,7 @@
         ]
       }
     },{
-      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_drugs_C4.csv", 
+      "url": "/data/paragraphs-bionlp_drugs_C4.csv", 
       
       "dialect":{
           "header": true
@@ -136,7 +136,7 @@
         ]
       }
     },{
-      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_drugs_C5.csv", 
+      "url": "/data/paragraphs-bionlp_drugs_C5.csv", 
       
       "dialect":{
           "header": true
@@ -161,7 +161,7 @@
         ]
       }
     },{
-      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C1.csv", 
+      "url": "/data/paragraphs-bionlp_diseases_C1.csv", 
       
       "dialect":{
           "header": true
@@ -171,7 +171,7 @@
         "foreignKey": [{
           "columnReference": "bionlp_diseases_C1",
           "reference": {
-            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv",
+            "resource": "/data/diseases.csv",
             "columnReference": "id"
             }
           }
@@ -194,7 +194,7 @@
         ]
       }
     },{
-      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C2.csv", 
+      "url": "/data/paragraphs-bionlp_diseases_C2.csv", 
       
       "dialect":{
           "header": true
@@ -204,7 +204,7 @@
         "foreignKey": [{
           "columnReference": "bionlp_diseases_C2",
           "reference": {
-            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv",
+            "resource": "/data/diseases.csv",
             "columnReference": "id"
             }
           }
@@ -227,7 +227,7 @@
         ]
       }
     },{
-      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C3.csv", 
+      "url": "/data/paragraphs-bionlp_diseases_C3.csv", 
       
       "dialect":{
           "header": true
@@ -237,7 +237,7 @@
         "foreignKey": [{
           "columnReference": "bionlp_diseases_C3",
           "reference": {
-            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv",
+            "resource": "/data/diseases.csv",
             "columnReference": "id"
             }
           }
@@ -260,7 +260,7 @@
         ]
       }
     },{
-      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C4.csv", 
+      "url": "/data/paragraphs-bionlp_diseases_C4.csv", 
       
       "dialect":{
           "header": true
@@ -270,7 +270,7 @@
         "foreignKey": [{
           "columnReference": "bionlp_diseases_C4",
           "reference": {
-            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv",
+            "resource": "/data/diseases.csv",
             "columnReference": "id"
             }
           }
@@ -293,7 +293,7 @@
         ]
       }
     },{
-      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C5.csv", 
+      "url": "/data/paragraphs-bionlp_diseases_C5.csv", 
       
       "dialect":{
           "header": true
@@ -303,7 +303,7 @@
         "foreignKey": [{
           "columnReference": "bionlp_diseases_C5",
           "reference": {
-            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv",
+            "resource": "/data/diseases.csv",
             "columnReference": "id"
             }
           }
@@ -326,7 +326,7 @@
         ]
       }
     },{
-      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C6.csv", 
+      "url": "/data/paragraphs-bionlp_diseases_C6.csv", 
       
       "dialect":{
           "header": true
@@ -336,7 +336,7 @@
         "foreignKey": [{
           "columnReference": "bionlp_diseases_C6",
           "reference": {
-            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv",
+            "resource": "/data/diseases.csv",
             "columnReference": "id"
             }
           }
@@ -359,7 +359,7 @@
         ]
       }
     },{
-      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C7.csv", 
+      "url": "/data/paragraphs-bionlp_diseases_C7.csv", 
       
       "dialect":{
           "header": true
@@ -369,7 +369,7 @@
         "foreignKey": [{
           "columnReference": "bionlp_diseases_C7",
           "reference": {
-            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv",
+            "resource": "/data/diseases.csv",
             "columnReference": "id"
             }
           }
@@ -392,7 +392,7 @@
         ]
       }
     },{
-      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C8.csv", 
+      "url": "/data/paragraphs-bionlp_diseases_C8.csv", 
       
       "dialect":{
           "header": true
@@ -402,7 +402,7 @@
         "foreignKey": [{
           "columnReference": "bionlp_diseases_C8",
           "reference": {
-            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv",
+            "resource": "/data/diseases.csv",
             "columnReference": "id"
             }
           }
@@ -425,7 +425,7 @@
         ]
       }
     },{
-      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C9.csv", 
+      "url": "/data/paragraphs-bionlp_diseases_C9.csv", 
       
       "dialect":{
           "header": true
@@ -435,7 +435,7 @@
         "foreignKey": [{
           "columnReference": "bionlp_diseases_C9",
           "reference": {
-            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv",
+            "resource": "/data/diseases.csv",
             "columnReference": "id"
             }
           }
@@ -458,7 +458,7 @@
         ]
       }
     },{
-      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C10.csv", 
+      "url": "/data/paragraphs-bionlp_diseases_C10.csv", 
       
       "dialect":{
           "header": true
@@ -468,7 +468,7 @@
         "foreignKey": [{
           "columnReference": "bionlp_diseases_C10",
           "reference": {
-            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv",
+            "resource": "/data/diseases.csv",
             "columnReference": "id"
             }
           }
@@ -491,7 +491,7 @@
         ]
       }
     },{
-      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C11.csv", 
+      "url": "/data/paragraphs-bionlp_diseases_C11.csv", 
       
       "dialect":{
           "header": true
@@ -501,7 +501,7 @@
         "foreignKey": [{
           "columnReference": "bionlp_diseases_C11",
           "reference": {
-            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv",
+            "resource": "/data/diseases.csv",
             "columnReference": "id"
             }
           }
@@ -524,7 +524,7 @@
         ]
       }
     },{
-      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C12.csv", 
+      "url": "/data/paragraphs-bionlp_diseases_C12.csv", 
       
       "dialect":{
           "header": true
@@ -534,7 +534,7 @@
         "foreignKey": [{
           "columnReference": "bionlp_diseases_C12",
           "reference": {
-            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv",
+            "resource": "/data/diseases.csv",
             "columnReference": "id"
             }
           }
@@ -557,7 +557,7 @@
         ]
       }
     },{
-      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C13.csv", 
+      "url": "/data/paragraphs-bionlp_diseases_C13.csv", 
       
       "dialect":{
           "header": true
@@ -567,7 +567,7 @@
         "foreignKey": [{
           "columnReference": "bionlp_diseases_C13",
           "reference": {
-            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv",
+            "resource": "/data/diseases.csv",
             "columnReference": "id"
             }
           }
@@ -590,7 +590,7 @@
         ]
       }
     },{
-      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C14.csv", 
+      "url": "/data/paragraphs-bionlp_diseases_C14.csv", 
       
       "dialect":{
           "header": true
@@ -600,7 +600,7 @@
         "foreignKey": [{
           "columnReference": "bionlp_diseases_C14",
           "reference": {
-            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv",
+            "resource": "/data/diseases.csv",
             "columnReference": "id"
             }
           }
@@ -623,7 +623,7 @@
         ]
       }
     },{
-      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C15.csv", 
+      "url": "/data/paragraphs-bionlp_diseases_C15.csv", 
       
       "dialect":{
           "header": true
@@ -633,7 +633,7 @@
         "foreignKey": [{
           "columnReference": "bionlp_diseases_C15",
           "reference": {
-            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv",
+            "resource": "/data/diseases.csv",
             "columnReference": "id"
             }
           }
@@ -656,7 +656,7 @@
         ]
       }
     },{
-      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C16.csv", 
+      "url": "/data/paragraphs-bionlp_diseases_C16.csv", 
       
       "dialect":{
           "header": true
@@ -666,7 +666,7 @@
         "foreignKey": [{
           "columnReference": "bionlp_diseases_C16",
           "reference": {
-            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv",
+            "resource": "/data/diseases.csv",
             "columnReference": "id"
             }
           }
@@ -689,7 +689,7 @@
         ]
       }
     },{
-      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C17.csv", 
+      "url": "/data/paragraphs-bionlp_diseases_C17.csv", 
       
       "dialect":{
           "header": true
@@ -699,7 +699,7 @@
         "foreignKey": [{
           "columnReference": "bionlp_diseases_C17",
           "reference": {
-            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv",
+            "resource": "/data/diseases.csv",
             "columnReference": "id"
             }
           }
@@ -722,7 +722,7 @@
         ]
       }
     },{
-      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C18.csv", 
+      "url": "/data/paragraphs-bionlp_diseases_C18.csv", 
       
       "dialect":{
           "header": true
@@ -732,7 +732,7 @@
         "foreignKey": [{
           "columnReference": "bionlp_diseases_C18",
           "reference": {
-            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv",
+            "resource": "/data/diseases.csv",
             "columnReference": "id"
             }
           }
@@ -755,7 +755,7 @@
         ]
       }
     },{
-      "url": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/paragraphs-bionlp_diseases_C19.csv", 
+      "url": "/data/paragraphs-bionlp_diseases_C19.csv", 
       
       "dialect":{
           "header": true
@@ -765,7 +765,7 @@
         "foreignKey": [{
           "columnReference": "bionlp_diseases_C19",
           "reference": {
-            "resource": "/home/dchaves/data-covid/drugs4covid19-kg/scripts/diseases.csv",
+            "resource": "/data/diseases.csv",
             "columnReference": "id"
             }
           }
