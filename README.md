@@ -3,7 +3,7 @@
 Resources for the constructing and exploitation of the KG - Drugs4Covid. The construction of the KG followed a systematic and maintainable approach creating a set of RML and CSVW annotations and using SDM-RDFizer RML engine for transforming the original input data (from SOLR databases) in RDF.
 
 ## Docker
-We provide a docker-compose with two docker-images (Virutoso and SDM-RDFizer) and a script to generate a local copy of the KG.
+We provide a docker-compose with two docker-images (Virtuoso and SDM-RDFizer) and a script to generate a local copy of the KG.
 
 
 ## Resources:
@@ -21,4 +21,4 @@ We include links to other existing Covid19 Knowledge Graphs in other to federate
 
 
 ## Contributing:
-Please read the contribution.md and provide your resources via the issue templates.
+Please read the CONTRIBUTING.md and provide your resources via issue templates.
