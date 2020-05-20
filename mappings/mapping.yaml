@@ -26,6 +26,7 @@ mappings:
       - [d4covid:identifier, $(id)]
       - [dc:title, $(name_s)]
       - [dc:license, $(source_s)]
+      - [d4covid:pmc_url, $(pmc_url)~iri]
       - [rdfs:seeAlso, https://librairy.linkeddata.es/data/covid/select?q=id:$(id)~iri]
       - [rdfs:seeAlso, https://cord-19.apps.allenai.org/paper/$(id)~iri]
       - [owl:sameAs, https://covid-19ds.data.dice-research.org/resource/$(id)~iri]

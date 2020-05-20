@@ -16,4 +16,4 @@ do
   python3 normalize.py -f articles-$j.csv -c $j
 done
 
-python3 preparation.py -f articles.csv
+python3 preparation_articles.py -f articles.csv
