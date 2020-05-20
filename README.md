@@ -7,7 +7,7 @@ We provide a docker-compose with two docker-images (Virtuoso and SDM-RDFizer) an
 
 
 ## Resources:
-- Website with some example queries and RDF dumps versions: https://kg.drugs4covid.oeg-upm.net/
+- Website with some example queries and RDF dumps: https://kg.drugs4covid.oeg-upm.net/
 - SPARQL Endpoint: https://kg.drugs4covid.oeg-upm.net/sparql
 - General website of the project: https://drugs4covid.oeg-upm.net/
 
