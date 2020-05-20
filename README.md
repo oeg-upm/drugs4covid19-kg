@@ -17,7 +17,7 @@ We include links to other existing Covid19 Knowledge Graphs in other to federate
 
 - From WIMMICS Group (cord19-nekg): http://ns.inria.fr/covid19/
 - From DICE Group (COVID19-DS): https://covid-19ds.data.dice-research.org/resource/
-- From SDM-TIB (Knowledge4COVID-19): https://f0ffbb86.ngrok.io/sparql
+- From SDM-TIB (Knowledge4COVID-19): https://blogs.tib.eu/wp/tib/2020/05/06/how-do-knowledge-graphs-contribute-to-understanding-covid-19-related-treatments/
 
 
 ## Contributing:
