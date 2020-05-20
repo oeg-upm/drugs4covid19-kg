@@ -41,6 +41,16 @@ const virtuosoQueries = [
 const rdfDumps = [
     {
         text:'Download RDF',
+        date:'20-05-2020',
+        link:'https://delicias.dia.fi.upm.es/nextcloud/index.php/s/NssWAYcsXQSXH9b/download'
+    },
+    {
+        text:'Download RDF',
+        date:'30-04-2020',
+        link:'https://delicias.dia.fi.upm.es/nextcloud/index.php/s/gore3QGBptCnZGK/download'
+    },
+    {
+        text:'Download RDF',
         date:'28-04-2020',
         link:'https://delicias.dia.fi.upm.es/nextcloud/index.php/s/WGCtrwqpCT4cgHj/download'
     },
