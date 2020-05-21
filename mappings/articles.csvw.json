@@ -5,7 +5,7 @@
   ],
   "tables": [
     {
-      "url": "/data/article.csv", 
+      "url": "/data/articles.csv", 
       
       "dialect":{
           "header": true
@@ -28,6 +28,11 @@
           {
             "datatype": "string",
             "titles": "url_s"
+          },
+          {
+            "datatype": "string",
+            "null": "",
+            "titles": "pmc_url"
           }
         ]
       }
