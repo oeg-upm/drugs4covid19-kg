@@ -193,7 +193,6 @@ WHERE {
 Paragraphs that mention pneumonia and COVID-19, the active ingredients that are mentioned in these paragraphs and the title in their corresponding papers. 
 
 
-
 PREFIX d4covid:<https://w3id.org/def/DRUGS4COVID19#>
 PREFIX dc: <http://purl.org/dc/elements/1.1/>
 PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
@@ -219,17 +218,9 @@ WHERE {
 
 
 
-
-
-
-
-
-
-
-
-#7. Active substances discussed with coagulation activation and COVID-19
-Paragraphs that mention the disorders coagulation activation and COVID-19, the active ingredients that appear in these paragraphs and the corresponding paper title.
-Query proposed by a medical doctor. There is a need to block coagulation activation of patients with COVID-19. Necrosis problems have been observed in patients with COVID-19.
+#7. Active substances discussed with coagulation activation and Pneumonia (MESH code D011014)
+Paragraphs that mention the disorders coagulation activation and pneumonia, the active ingredients that appear in these paragraphs and the corresponding paper title.
+Query proposed by a medical doctor. There is a need to block coagulation activation of patients with pneumonia. Necrosis problems have been observed in patients with COVID-19.
 
 
 PREFIX d4covid:<https://w3id.org/def/DRUGS4COVID19#>
@@ -247,15 +238,48 @@ WHERE {
         ?paper dc:title ?paperTitle . 
          ?paragraph d4covid:mentions ?disease1 .
          ?disease1 a d4covid:Disease .
-       #  ?disease1 d4covid:MESHCode 'C000657245' .   
+        ?disease1 d4covid:MESHCode 'D011014' .   
          ?paragraph d4covid:mentions ?disease2 .
          ?disease2 a d4covid:Disease .
-       # ?disease1 d4covid:MESHCode 'D001778' . 
          ?disease2 dc:title ?titleDisease .
          ?paragraph  d4covid:mentions ?activeSubstance .        
          ?activeSubstance skos:prefLabel ?labelSubstance .
-     FILTER(CONTAINS(?titleDisease,"Coagulation") || CONTAINS(?titleDisease,"coagulation"))
+     FILTER((?disease1 != ?disease2) && (CONTAINS(?titleDisease,"Coagulation") || CONTAINS(?titleDisease,"coagulation"))
 }
+
+# 8. Federated query (Extension of query 1): Articles discussing amphotericin B and COVID-19.
+Paragraphs that mention a certain active substance and a certain disorder, and the name and authors (from another KG) of the corresponding paper.
+Instances: amphotericin B , Disorder: COVID-19 MESHCode C000657245
+
+PREFIX d4covid:<https://w3id.org/def/DRUGS4COVID19#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX skos:<http://www.w3.org/2004/02/skos/core#>
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dice-covid:<https://covid-19ds.data.dice-research.org/resource/>
+PREFIX ont-leipzig: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+PREFIX bibtex: <http://purl.org/net/nknouf/ns/bibtex#>
+
+#SELECT  DISTINCT ?section ?titleDisease ?paperTitle ?completePaper
+select *
+WHERE {
+    ?paragraph a d4covid:Paragraph .
+        ?paragraph d4covid:section ?section .
+        ?paper d4covid:contains ?paragraph .
+        ?paper dc:title ?paperTitle .     
+        ?paragraph d4covid:mentions ?activeSubstance .
+        ?activeSubstance skos:prefLabel  'amphotericin B'@en  . 
+        ?paragraph d4covid:mentions ?disease .
+        ?disease a d4covid:Disease .
+        ?disease d4covid:MESHCode 'C000657245' .   
+        ?disease dc:title ?titleDisease .
+        ?paper owl:sameAs ?sameOther 
+             
+SERVICE <https://covid-19ds.data.dice-research.org/sparql> {
+        ?sameOther bibtex:hasAuthor ?author 
+    }
+}
+
 
 
 
