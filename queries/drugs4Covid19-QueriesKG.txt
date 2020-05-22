@@ -260,8 +260,7 @@ PREFIX dice-covid:<https://covid-19ds.data.dice-research.org/resource/>
 PREFIX ont-leipzig: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
 PREFIX bibtex: <http://purl.org/net/nknouf/ns/bibtex#>
 
-#SELECT  DISTINCT ?section ?titleDisease ?paperTitle ?completePaper
-select *
+SELECT  DISTINCT ?section ?titleDisease ?paperTitle ?completePaper ?author
 WHERE {
     ?paragraph a d4covid:Paragraph .
         ?paragraph d4covid:section ?section .
