@@ -33,8 +33,8 @@ WHERE {
 
 
 
-#2 Articles discussing drugs of the amphotericin B family (same ATC4) and COVID-19
-Paragraphs that mention drugs of the amphotericin B family (same ATC4) and COVID-19, and the title and source of the corresponding paper.
+#2 Articles discussing drugs of the VIRAL VACCINES family  and COVID-19
+Paragraphs that mention drugs of the VIRAL VACCINES family (ATC J07B) and COVID-19, and the title and source of the corresponding paper.
 
 PREFIX d4covid:<https://w3id.org/def/DRUGS4COVID19#>
 PREFIX dc: <http://purl.org/dc/elements/1.1/>
@@ -42,7 +42,7 @@ PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX skos:<http://www.w3.org/2004/02/skos/core#>
 PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT  DISTINCT ?section ?titleDisease ?paperTitle ?completePaper ?labelFamilySubstance
+SELECT  DISTINCT ?section ?titleDisease ?paperTitle ?completePaper ?labelActiveSubstance
 WHERE
 {
     ?paragraph a d4covid:Paragraph .
@@ -50,10 +50,10 @@ WHERE
         ?paper d4covid:contains ?paragraph .
         ?paper dc:title ?paperTitle . 
         ?paper rdfs:seeAlso ?completePaper .    
-        ?paper d4covid:mentions ?familySubstance .
-        ?familySubstance skos:prefLabel ?labelFamilySubstance .
-        ?activeSubstance rdfs:subClassOf ?familySubstance .      
-        ?activeSubstance skos:prefLabel  'amphotericin B'@en  . 
+        ?paragraph d4covid:mentions ?activeSubstance .
+        ?activeSubstance skos:prefLabel ?labelActiveSubstance .
+        ?activeSubstance d4covid:isNarrowerThan ?familySubstance .      
+        ?familySubstance skos:prefLabel  'VIRAL VACCINES'@en  . 
         ?paragraph d4covid:mentions ?disease .
         ?disease a d4covid:Disease .
         ?disease d4covid:MESHCode 'C000657245' .   
@@ -99,7 +99,7 @@ UNION
         ?paper rdfs:seeAlso ?completePaper .    
         ?paper d4covid:mentions ?L5LevelSubstance .
         ?activeSubstance skos:notation 'L03AX'^^xsd:string . 
-        ?L5LevelSubstance  rdfs:subClassOf ?activeSubstance .
+        ?L5LevelSubstance  d4covid:isNarrowerThan ?activeSubstance .
         ?L5LevelSubstance skos:prefLabel ?labelATCLevel5 .
         ?paragraph d4covid:mentions ?disease .
         ?disease a d4covid:Disease .
@@ -142,7 +142,7 @@ UNION
         ?paper rdfs:seeAlso ?completePaper .    
         ?paper d4covid:mentions ?L5LevelSubstance .
         ?activeSubstance skos:notation 'L03AX'^^xsd:string . 
-        ?L5LevelSubstance  rdfs:subClassOf ?activeSubstance .
+        ?L5LevelSubstance  d4covid:isNarrowerThan ?activeSubstance .
         ?L5LevelSubstance skos:prefLabel ?labelATCLevel5 .
         ?paragraph d4covid:mentions ?disease .
         ?disease a d4covid:Disease .
