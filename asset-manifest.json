@@ -1,27 +1,34 @@
 {
   "files": {
-    "main.css": "/static/css/main.f4265be2.chunk.css",
-    "main.js": "/static/js/main.b8c61424.chunk.js",
-    "main.js.map": "/static/js/main.b8c61424.chunk.js.map",
+    "main.css": "/static/css/main.d64ff248.chunk.css",
+    "main.js": "/static/js/main.ffc333f4.chunk.js",
+    "main.js.map": "/static/js/main.ffc333f4.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.974924c2.js",
     "runtime-main.js.map": "/static/js/runtime-main.974924c2.js.map",
     "static/css/2.8d06fd47.chunk.css": "/static/css/2.8d06fd47.chunk.css",
-    "static/js/2.d17e3f5e.chunk.js": "/static/js/2.d17e3f5e.chunk.js",
-    "static/js/2.d17e3f5e.chunk.js.map": "/static/js/2.d17e3f5e.chunk.js.map",
+    "static/js/2.c3321b6f.chunk.js": "/static/js/2.c3321b6f.chunk.js",
+    "static/js/2.c3321b6f.chunk.js.map": "/static/js/2.c3321b6f.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.2f2f25baeb6c82c3b4202df24ba9b178.js": "/precache-manifest.2f2f25baeb6c82c3b4202df24ba9b178.js",
+    "precache-manifest.6ab4b39b92704ea06f70ab8c9b8cff3b.js": "/precache-manifest.6ab4b39b92704ea06f70ab8c9b8cff3b.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.8d06fd47.chunk.css.map": "/static/css/2.8d06fd47.chunk.css.map",
-    "static/css/main.f4265be2.chunk.css.map": "/static/css/main.f4265be2.chunk.css.map",
-    "static/js/2.d17e3f5e.chunk.js.LICENSE.txt": "/static/js/2.d17e3f5e.chunk.js.LICENSE.txt",
+    "static/css/main.d64ff248.chunk.css.map": "/static/css/main.d64ff248.chunk.css.map",
+    "static/js/2.c3321b6f.chunk.js.LICENSE.txt": "/static/js/2.c3321b6f.chunk.js.LICENSE.txt",
+    "static/media/FacInformatica.jpg": "/static/media/FacInformatica.c48fb5ab.jpg",
+    "static/media/Logo_OEG.jpg": "/static/media/Logo_OEG.bc48c89c.jpg",
+    "static/media/bbva.svg": "/static/media/bbva.fe09b448.svg",
+    "static/media/image.png": "/static/media/image.5799dfff.png",
     "static/media/kg.svg": "/static/media/kg.f2fd68f0.svg",
-    "static/media/logo.svg": "/static/media/logo.aa6b7ebb.svg"
+    "static/media/logo.svg": "/static/media/logo.aa6b7ebb.svg",
+    "static/media/logo.white.svg": "/static/media/logo.white.94d3e461.svg",
+    "static/media/oeg.jpg": "/static/media/oeg.33852d44.jpg",
+    "static/media/upm.png": "/static/media/upm.4d109cc0.png"
   },
   "entrypoints": [
     "static/js/runtime-main.974924c2.js",
     "static/css/2.8d06fd47.chunk.css",
-    "static/js/2.d17e3f5e.chunk.js",
-    "static/css/main.f4265be2.chunk.css",
-    "static/js/main.b8c61424.chunk.js"
+    "static/js/2.c3321b6f.chunk.js",
+    "static/css/main.d64ff248.chunk.css",
+    "static/js/main.ffc333f4.chunk.js"
   ]
 }
