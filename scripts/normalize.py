@@ -10,7 +10,7 @@ def normalization():
     parser = argparse.ArgumentParser()
     parser.add_argument("-f", "--file", required=True, help="file to normalize")
     parser.add_argument("-c", "--column", required=True, help="column with multiple values")
-    parser.add_argument("-s", "--separator", required=False, help="column with multiple values")
+    parser.add_argument("-s", "--separator", required=False, help="separator for the multiple values")
     args = parser.parse_args()
 
     if len(sys.argv) >= 5:
